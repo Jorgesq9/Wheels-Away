@@ -1,0 +1,42 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "Juan",
+        "email": "juan@example.com",
+        "password": "password123",
+        "bookings": [
+          {
+            "id": 101,
+            "car_id": 3,
+            "start_date": "2024-04-15",
+            "end_date": "2024-04-20"
+          }
+        ],
+        "image": "https://source.unsplash.com/featured/?user,man"
+      },
+      {
+        "id": 2,
+        "name": "María",
+        "email": "maria@example.com",
+        "password": "securepass",
+        "bookings": [],
+        "image": "https://source.unsplash.com/featured/?user,woman"
+      },
+      {
+        "id": 3,
+        "name": "Pedro",
+        "email": "pedro@example.com",
+        "password": "p3dr0123",
+        "bookings": [
+          {
+            "id": 102,
+            "car_id": 8,
+            "start_date": "2024-04-18",
+            "end_date": "2024-04-25"
+          }
+        ],
+        "image": "https://source.unsplash.com/featured/?user,man"
+      }
+    ]
+  }
