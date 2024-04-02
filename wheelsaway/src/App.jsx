@@ -5,11 +5,19 @@ import Login from './pages/Login';
 import DetailPage from './pages/DetailPage';
 import Bookings from './pages/Bookings';
 import Profile from './pages/Profile';
+import Navbar from './components/Navbar'
 import { Link } from "react-router-dom";
+import Container from 'react-bootstrap/Container';
+
+
 function App() {
 
   return (
     <>
+  <Container fluid>
+
+  
+      <Navbar />
        <Link to ="/">
              Home
       </Link>
@@ -32,6 +40,7 @@ function App() {
         <Route path="/reservations/:id" element={ <Bookings/>} />
         <Route path="/user/:id" element={ <Profile/>} />
       </Routes>
+      </Container>
     </>
   )
 }
