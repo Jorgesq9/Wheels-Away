@@ -1,0 +1,101 @@
+/* General styles */
+.homePage {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+}
+
+.navbar .logo {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.navbar .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+/* Hero section styles */
+.hero-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: #f2f2f2;
+}
+
+.hero-section h1 {
+    margin-bottom: 15px;
+    font-size: 32px;
+}
+
+/* Search section styles */
+.search-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.search-form {
+    margin-top: 20px;
+}
+
+.search-form input,
+.search-form button {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-form button {
+    cursor: pointer;
+    background: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+/* Featured cars styles */
+.featured-cars {
+    padding: 20px;
+    background: #f9f9f9;
+}
+
+.cars-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+/* Testimonials styles */
+.testimonials {
+    padding: 20px;
+    background: #fff;
+}
+
+.testimonials-list {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+
+/* Footer styles */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
