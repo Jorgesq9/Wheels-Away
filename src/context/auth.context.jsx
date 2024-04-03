@@ -10,6 +10,7 @@ function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
+  const [userData, setUserData] = useState(null);
   const [authError, setAuthError] = useState(null);
 
   const storeToken = (token) => {
@@ -22,8 +23,6 @@ function AuthProviderWrapper(props) {
 
     // If the token exists in the localStorage
     if (storedToken) {
-      // We must send the JWT token in the request's "Authorization" Headers
-      console.log("my stored token is:",storedToken);
       axios
         .get(`${API_URL}/api/auth/verify`, {
           headers: { Authorization: `Bearer ${storedToken}` },
@@ -32,7 +31,6 @@ function AuthProviderWrapper(props) {
         .then((response) => {
           // If the server verifies that JWT token is valid
           const user = response.data;
-          console.log("the response is : ",response.data)
           // Update state variables
           setIsLoggedIn(true);
           setIsLoading(false);
@@ -58,11 +56,12 @@ function AuthProviderWrapper(props) {
     }
   };
 
-
   const removeToken = () => {
     // Upon logout, remove the token from the localStorage
     localStorage.removeItem("authToken");
   };
+
+  
 
   const logOutUser = () => {
     removeToken();
@@ -74,6 +73,10 @@ function AuthProviderWrapper(props) {
     // after the components in the App render for the first time.
     authenticateUser();
   }, []);
+
+
+
+
 
   return (
     <AuthContext.Provider

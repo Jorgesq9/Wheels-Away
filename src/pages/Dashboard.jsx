@@ -41,8 +41,8 @@ function HomePage() {
             </section>
             <Container fluid className="px-5">
             <Row gap={4}>
-                {cars?.map((car) => (
-                    <Col key={car.id} xs={12} md={4} lg={3} xl={3}>
+                {cars?.map((car,index) => (
+                    <Col key={index} xs={12} md={4} lg={3} xl={3}>
                     <Link className="custom-card-link" to={`/details/${car._id}`}>
                         <CardProduct
                         car={car}
