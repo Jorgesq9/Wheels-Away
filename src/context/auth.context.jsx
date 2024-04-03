@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const API_URL = "http://localhost:5005";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const AuthContext = React.createContext();
 
@@ -49,6 +49,7 @@ function AuthProviderWrapper(props) {
           setIsLoading(false);
           setUser(null);
         });
+        
     } else {
       // If the token is not available
       setIsLoggedIn(false);
@@ -56,6 +57,7 @@ function AuthProviderWrapper(props) {
       setUser(null);
     }
   };
+
 
   const removeToken = () => {
     // Upon logout, remove the token from the localStorage
