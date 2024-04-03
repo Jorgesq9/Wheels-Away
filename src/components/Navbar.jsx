@@ -1,17 +1,25 @@
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import { useContext } from "react";
+import { AuthContext } from "../context/auth.context";
+import { Link, useLocation } from "react-router-dom";
 
-function OffcanvasExample() {
+function OffcanvasExample( props ) {
+  const location = useLocation();
+  const { isLoggedIn, logOutUser } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  console.log(user)
+  console.log("show the state of logged", isLoggedIn)
+
+
   return (
     <>
         <Navbar key="md" expand="md" className="bg-body-tertiary mb-3">
           <Container fluid>
-            <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+            <Navbar.Brand href="/">Navbar Offcanvas</Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-md`}
@@ -26,24 +34,31 @@ function OffcanvasExample() {
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Nav.Link href="#action1">Home</Nav.Link>
-                  <Nav.Link href="#action2">Link</Nav.Link>
+                  <Nav.Link href="/login">Login</Nav.Link>
                   <NavDropdown
                     title="Dropdown"
                     id={`offcanvasNavbarDropdown-expand-md`}
                   >
-                    <NavDropdown.Item href="#action4">
-                      Login
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action5">
+                    {isLoggedIn && (
+                      <>
+                        <h2>{user.name}</h2>
+                        <h2>{user.driverLicense}</h2>
+                        <h2>{user.photo}</h2>
+                        <button className="px-4 py-1 rounded bg-blue-500 text-white hover:bg-blue-400" onClick={logOutUser}>Log Out </button>
+                      </>
+          )}
+          {!isLoggedIn && location.pathname !== "/login" && location.pathname !== "/signup" && (
+            <Link to ="/login">
+              <button className="px-6 py-1 rounded bg-blue-500 text-white hover:bg-blue-400">Log In</button>
+            </Link>
+          )}
+                    <NavDropdown.Item href="/signup">
                       Sign Up
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="#action5">
+                    <NavDropdown.Item href="/reservations">
                       Reservations
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
-                      Log Out
-                    </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
                 {/* <Form className="d-flex">
