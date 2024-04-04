@@ -10,8 +10,7 @@ import { Link, useLocation } from "react-router-dom";
 function OffcanvasExample(props) {
   const location = useLocation();
   const { isLoggedIn, logOutUser } = useContext(AuthContext);
-  const { user } = useContext(AuthContext);
-  console.log(user);
+  const { userData } = useContext(AuthContext);
   console.log("show the state of logged", isLoggedIn);
 
   return (
@@ -32,15 +31,13 @@ function OffcanvasExample(props) {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Nav.Link href="#action1">Home</Nav.Link>
-                <Nav.Link href="/login">Login</Nav.Link>
                 <NavDropdown
                   title="Dropdown"
                   id={`offcanvasNavbarDropdown-expand-md`}
                 >
-                  {isLoggedIn && (
+                  {isLoggedIn &&  userData && (
                     <>
-                      <h2>{user.name}{user.email}</h2>
+                      <h2>{userData.name}{userData.email}</h2>
                       <button
                         className="px-4 py-1 rounded bg-blue-500 text-white hover:bg-blue-400"
                         onClick={logOutUser}
