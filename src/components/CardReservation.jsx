@@ -4,8 +4,8 @@ import {
   Card, Carousel, Row, Col, Placeholder,
 } from 'react-bootstrap';
 
-function CardProduct({
-  car
+function CardReservation({
+  reservation
 }) {
   const [ready, setReady] = useState(false);
 
@@ -13,7 +13,7 @@ function CardProduct({
     if (!ready) setReady(true);
   }, 500);
 
-
+  console.log(reservation)
   if (!ready) {
     return (
       <Card style={{ width: '18rem' }}>
@@ -45,9 +45,9 @@ function CardProduct({
       <Carousel
         interval={null}
         indicators
-        className="custom-carousel-product"
+        className="custom-carousel"
       >
-        {car.images.map((imageUrl, imageId) => (
+        {reservation.car.images.map((imageUrl, imageId) => (
           // eslint-disable-next-line react/no-array-index-key
           <Carousel.Item key={imageId}>
             <Card.Img variant="top" src={imageUrl} />
@@ -56,7 +56,7 @@ function CardProduct({
       </Carousel>
 
       <Card.Body>
-        <Row className="align-items-center card-title-content">
+        {/* <Row className="align-items-center card-title-content">
           <Col>
             <Card.Title className="custom-card-title ">{car.make}</Card.Title>
           </Col>
@@ -81,10 +81,12 @@ function CardProduct({
             {car.pricePerDay}
           </span>
           {' '}
-        </Card.Text>
+        </Card.Text> */}
+        <p>id: {reservation._id}</p>
+        <h6>Total Price {reservation.totalPrice}</h6>
       </Card.Body>
     </Card>
   );
 }
 
-export default CardProduct;
+export default CardReservation;

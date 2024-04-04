@@ -10,7 +10,7 @@ function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState(null)
   const [authError, setAuthError] = useState(null);
 
   const storeToken = (token) => {
@@ -53,6 +53,7 @@ function AuthProviderWrapper(props) {
       setIsLoggedIn(false);
       setIsLoading(false);
       setUser(null);
+      setUserData(null);
     }
   };
 
@@ -65,29 +66,53 @@ function AuthProviderWrapper(props) {
 
   const logOutUser = () => {
     removeToken();
-    authenticateUser();
+    setUser(null);
+    setUserData(null);
   };
 
+  const getUserData = () => {
+    const storedToken = localStorage.getItem("authToken");
+    
+    if (storedToken) {
+      setIsLoading(true)
+      axios
+      .get(
+        `${API_URL}/api/users/${user._id}`,
+        { headers: { authorization: `Bearer ${storedToken}` }}
+        )
+        .then((response) => {
+          setUserData(response.data);
+          setIsLoading(false)
+        })
+        .catch((error) => {
+          setIsLoading(false)
+          setUserData(null)
+          console.log(error.response.data.message)
+        });
+      }
+  };
+  
   useEffect(() => {
-    // Run the function after the initial render,
-    // after the components in the App render for the first time.
-    authenticateUser();
+    authenticateUser()   
   }, []);
 
-
-
-
-
+  useEffect(() => {
+    if(user !== null){
+      getUserData()
+    }
+  },[user])
+  
   return (
     <AuthContext.Provider
       value={{
         isLoggedIn,
         isLoading,
         user,
+        userData,
         storeToken,
         authenticateUser,
         logOutUser,
-        authError,
+        setAuthError
       }}
     >
       {props.children}
