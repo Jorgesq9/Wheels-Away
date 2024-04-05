@@ -1,5 +1,195 @@
 .custom-carousel {
-    position: relative;
-    width: 100px !important;
-    height: 100px !important;
+  position: relative;
+  width: 100px !important;
+  height: 100px !important;
 }
+
+img.user-dropdown.rounded-circle {
+  width: 45px;
+  height: 45px;
+}
+
+.dropdown-menu.show {
+  margin-right: 52px;
+  margin-left: -60px;
+}
+.custom-card-link {
+    text-decoration: none;
+}
+
+/* .carousel-inner {
+    padding: 15px;
+    height: 200px;
+    border-radius: 8px !important;
+} */
+
+button.btn-booking {
+    background: #ff5c3d;
+    color: white;
+    font-weight: 600;
+    padding: 5px 10px;
+    border: 0;
+    border-radius: 4px;
+}
+.card-img, .card-img-top {
+    border-top-left-radius: var(--bs-card-inner-border-radius);
+    border-top-right-radius: var(--bs-card-inner-border-radius);
+    object-fit: cover;
+    /* width: 100%; */
+    height: 100%;
+    object-position: center;
+}
+
+.carousel {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    padding: 15px;
+}
+
+.card-img-top {
+    border-radius: 8px !important;
+}
+/* Starting */
+
+.header {
+  background: rgb(127, 155, 176);
+  background: linear-gradient(
+    15deg,
+    rgba(127, 155, 176, 0.9654236694677871) 0%,
+    rgba(4, 3, 3, 0.8981967787114846) 25%
+  );
+  color: white;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+.logo-image {
+  height: 45px;
+}
+nav {
+  /* background: #fcfcfc !important; */
+  position: fixed !important;
+  top: 0 !important;
+  width: 100%;
+  z-index: 11;
+  text-align: center;
+}
+nav a:hover {
+  background-color: transparent;
+}
+
+.btn-nav.nav-link {
+  color: #ec6749;
+  border: 1px solid #ec6749;
+  border-radius: 20px;
+  padding: 5px 33px;
+  font-weight: 600;
+  width: 100px;
+}
+
+img.floating-car {
+  height: 381px;
+  right: 0;
+  position: absolute;
+  margin-top: -120px;
+}
+
+img.stores {
+  height: 71px;
+}
+
+section.filter-section {
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 10rem;
+    padding-bottom: 8rem;
+}
+
+section.filter-section {
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+form.search-form.filter-car {
+    background: white;
+    width: fit-content;
+    padding: 20px 50px;
+    /* -webkit-box-shadow: 0px 6px 14px -1px rgba(0,0,0,0.75); */
+    -moz-box-shadow: 0px 6px 14px -1px rgba(0, 0, 0, 0.75);
+    /* box-shadow: 0px 6px 14px -1px rgba(0,0,0,0.75); */
+    -webkit-box-shadow: 0px 6px 14px -1px rgba(0,0,0,0.46);
+    -moz-box-shadow: 0px 6px 14px -1px rgba(0, 0, 0, 0.46);
+    box-shadow: 0px 6px 14px -1px rgba(0,0,0,0.46);
+    border-radius: 8px;
+}
+
+.filter-car button {
+    background: #ec6749;
+    color: white;
+    border: 0;
+    border-radius: 4px;
+    width: 100px;
+    height: 41px;
+    margin-left: 20px;
+}
+
+.filter-car input {
+    border-color: transparent;
+}
+
+body {
+  background: #f3f3f3 !important;
+}
+
+.input-container {
+    position: relative;
+    margin: 50px auto;
+    width: 200px;
+  }
+  
+  .input-container input[type="text"] {
+    font-size: 20px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 5px 0;
+    background-color: transparent;
+    outline: none;
+  }
+  
+  .input-container .label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ccc;
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .input-container input[type="text"]:focus ~ .label,
+  .input-container input[type="text"]:valid ~ .label {
+    top: -20px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .input-container .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #333;
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+  }
+  
+  .input-container input[type="text"]:focus ~ .underline,
+  .input-container input[type="text"]:valid ~ .underline {
+    transform: scaleX(1);
+  }

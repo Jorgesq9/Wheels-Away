@@ -1,5 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
+import { TbManualGearbox } from "react-icons/tb";
+import { GiCarDoor } from "react-icons/gi";
+import { FaRegUser } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
+
 import {
   Card, Carousel, Row, Col, Placeholder,
 } from 'react-bootstrap';
@@ -16,7 +21,7 @@ function CardProduct({
 
   if (!ready) {
     return (
-      <Card style={{ width: '18rem' }}>
+      <Card style={{ width: '18rem' }} className="text-start">
         <Placeholder as={Card.Image} animation="glow">
           <Placeholder className="placeholder-image" xs={6} />
         </Placeholder>
@@ -56,32 +61,40 @@ function CardProduct({
       </Carousel>
 
       <Card.Body>
-        <Row className="align-items-center card-title-content">
+        <Row>
           <Col>
-            <Card.Title className="custom-card-title ">{car.make}</Card.Title>
-          </Col>
-          <Col xs="auto " md="auto " lg="auto" className="align-self-baseline ">
-            <Card.Text className="custom-card-rating">
-              {' '}
-              {car.model}
-            </Card.Text>
+          <Card.Text className='rating'> <span className='icon-rating'><FaStar /></span>  {car.rating}</Card.Text></Col>
+        </Row>
+        <Row className="align-items-center card-title-content pt-2">
+          <Col>
+            <Card.Title className="custom-card-title ">{car.make} {car.model}</Card.Title>
           </Col>
         </Row>
-        <Card.Text className="text-card mt-1">
-          {' '}
-          {car.year}
-        </Card.Text>
-        <Card.Text className="text-card">
-          {' '}
-          {car.licesePlate}
-        </Card.Text>
-        <Card.Text className="text-card-special mt-2">
-          <span className="text-price">
-            €
-            {car.pricePerDay}
-          </span>
-          {' '}
-        </Card.Text>
+        <Row className="align-items-center card-title-content pt-3">
+          <Col>
+            <Card.Text className="custom-text"><FaRegUser /> {car.passengers} passengers</Card.Text>
+          </Col>
+          <Col>
+            <Card.Text className="custom-text"><GiCarDoor /> {car.doors} doors</Card.Text>
+          </Col>
+        </Row>
+        <Row className="align-items-center card-title-content pt-2">
+          <Col>
+            <Card.Text className="custom-text">{car.year}</Card.Text>
+          </Col>
+          <Col>
+            <Card.Text className="custom-text"><TbManualGearbox /> {car.transmission} </Card.Text>
+          </Col>
+        </Row>
+        <Row className="align-items-space-between card-title-content pt-3">
+          <Col>
+            <Card.Text className="custom-price">€{car.pricePerDay} <span>/day</span></Card.Text>
+          </Col>
+          <Col>
+            <button className='btn-booking'>Rent Now</button>
+          </Col>
+        </Row>
+      
       </Card.Body>
     </Card>
   );

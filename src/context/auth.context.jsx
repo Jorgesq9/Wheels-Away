@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -10,8 +11,9 @@ function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
-  const [userData, setUserData] = useState(null)
+  const [userData, setUserData] = useState(null);
   const [authError, setAuthError] = useState(null);
+  const navigate = useNavigate();
 
   const storeToken = (token) => {
     localStorage.setItem("authToken", token);
@@ -26,7 +28,6 @@ function AuthProviderWrapper(props) {
       axios
         .get(`${API_URL}/api/auth/verify`, {
           headers: { Authorization: `Bearer ${storedToken}` },
-          
         })
         .then((response) => {
           // If the server verifies that JWT token is valid
@@ -46,8 +47,9 @@ function AuthProviderWrapper(props) {
           setIsLoggedIn(false);
           setIsLoading(false);
           setUser(null);
+
+          setUserData(null);
         });
-        
     } else {
       // If the token is not available
       setIsLoggedIn(false);
@@ -62,46 +64,45 @@ function AuthProviderWrapper(props) {
     localStorage.removeItem("authToken");
   };
 
-  
-
   const logOutUser = () => {
     removeToken();
     setUser(null);
     setUserData(null);
+    setIsLoggedIn(false);
+    navigate(`/`)
   };
 
   const getUserData = () => {
     const storedToken = localStorage.getItem("authToken");
-    
+
     if (storedToken) {
-      setIsLoading(true)
+      setIsLoading(true);
       axios
-      .get(
-        `${API_URL}/api/users/${user._id}`,
-        { headers: { authorization: `Bearer ${storedToken}` }}
-        )
+        .get(`${API_URL}/api/users/${user._id}`, {
+          headers: { authorization: `Bearer ${storedToken}` },
+        })
         .then((response) => {
           setUserData(response.data);
-          setIsLoading(false)
+          setIsLoading(false);
         })
         .catch((error) => {
-          setIsLoading(false)
-          setUserData(null)
-          console.log(error.response.data.message)
+          setIsLoading(false);
+          setUserData(null);
+          console.log(error.response.data.message);
         });
-      }
+    }
   };
-  
+
   useEffect(() => {
-    authenticateUser()   
+    authenticateUser();
   }, []);
 
   useEffect(() => {
-    if(user !== null){
-      getUserData()
+    if (user !== null) {
+      getUserData();
     }
-  },[user])
-  
+  }, [user]);
+
   return (
     <AuthContext.Provider
       value={{
@@ -112,7 +113,7 @@ function AuthProviderWrapper(props) {
         storeToken,
         authenticateUser,
         logOutUser,
-        setAuthError
+        setAuthError,
       }}
     >
       {props.children}
