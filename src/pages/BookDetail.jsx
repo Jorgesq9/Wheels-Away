@@ -6,6 +6,8 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 const BookDetail = () => {
     const [booking, setBooking] = useState(null);
+    const [editForm, setEditForm] = useState({ name: '' , startDate: '', endDate: '' });
+    const [isEditing, setIsEditing] = useState(false);
     const { rentalId } = useParams();
     const navigate = useNavigate();
 
@@ -18,6 +20,10 @@ const BookDetail = () => {
                 const reservation = response.data;
                 console.log('Booking details:', reservation);
                 setBooking(reservation);
+                setEditForm({
+                    startDate: reservation.startDate.slice(0,10),
+                    endDate: reservation.endDate.slice(0,10),
+                })
             } catch (error) {
                 console.error('Error fetching booking:', error);
             }
@@ -33,23 +39,75 @@ const BookDetail = () => {
           .catch((error) => console.log(error));
       };
 
-    return (
-        <div>
-            {booking ? (
-                <div>
-                    <p>ID de reserva: {booking._id}</p>
-                    <p>Nombre del cliente: {booking.user.name}</p>
-                    <p>image: {booking.car.images[0]}</p>
-                    <p>Fecha de inicio: {booking.startDate}</p>
-                    <p>Fecha de fin: {booking.endDate}</p>
-                    <button onClick={handleDelete}>Delete this Reservation</button>
-                    {/* Agrega más propiedades según la estructura de tu reserva */}
-                </div>
-            ) : (
-                <p>Cargando...</p>
-            )}
-        </div>
-    );
-};
+      const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0'); // getMonth() es 0-index, así que sumamos 1
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
+      };
+      
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setEditForm({ ...editForm, [name]: value });
+    };
+    const handleEdit = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.put(`${API_URL}/api/rentals/${booking._id}`, editForm);
+            setIsEditing(false);
+            window.location.reload()
+            
+        } catch (err) {
+            console.log("Error editing the reservation", err);
+        }
+    };
+      
+        const toggleEditForm = () => {
+            setIsEditing(!isEditing);
+        };
 
-export default BookDetail;
+    
+        return (
+            <div>
+                {booking ? (
+                    <div>
+                        <p>Reservation ID: {booking._id}</p>
+                        <p>Name: {booking.user.name}</p>
+                        <img src={booking.car.images[0]} alt="Car" style={{ width: '300px', height: 'auto' }} />
+                        <p>Start Date: {formatDate(booking.startDate)}</p>
+                        <p>Return Date: {formatDate(booking.endDate)}</p>
+                        <button onClick={handleDelete}>Delete this Reservation</button>
+                        <button onClick={toggleEditForm}>Edit this Reservation</button>
+                        {isEditing && (
+                            <form onSubmit={handleEdit}>
+                                <label>
+                                    Start Date:
+                                    <input
+                                        type="date"
+                                        name="startDate"
+                                        value={editForm.startDate}
+                                        onChange={handleChange}
+                                    />
+                                </label>
+                                <label>
+                                    End Date:
+                                    <input
+                                        type="date"
+                                        name="endDate"
+                                        value={editForm.endDate}
+                                        onChange={handleChange}
+                                    />
+                                </label>
+                                <button type="submit">Save Changes</button>
+                            </form>
+                        )}
+                    </div>
+                ) : (
+                    <p>Loading...</p>
+                )}
+            </div>
+        );
+    };
+    
+    export default BookDetail;
