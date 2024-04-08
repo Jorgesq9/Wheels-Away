@@ -7,7 +7,7 @@ import { FaStar } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa6";
 
 import {
-  Card, Image, Row, Col, Placeholder,
+  Card, Image, Row, Col, Placeholder
 } from 'react-bootstrap';
 
 function CardProduct({
@@ -59,9 +59,9 @@ function CardProduct({
         </Row>
         <Row>
           <Col className='d-flex'>
-            <Card.Text className="custom-text-label me-1"><FaRegUser /> {car.passengers} </Card.Text>
-            <Card.Text className="custom-text-label me-1"><GiCarDoor /> {car.doors} </Card.Text>
-            <Card.Text className="custom-text-label"><TbManualGearbox /> {car.transmission} </Card.Text>
+            <p className="custom-text-label me-1"><FaRegUser className='me-1'/> {car.passengers} </p>
+            <p className="custom-text-label me-1"><GiCarDoor className='me-1'/> {car.doors} </p>
+            <p className="custom-text-label"><TbManualGearbox className='me-1'/> {car.transmission} </p>
           </Col>
         </Row>
        
@@ -72,8 +72,8 @@ function CardProduct({
       <Card.Body>
       <Row className="align-items-space-between card-title-content ">
           <Col>
-            <Card.Text className="custom-text-km"><FaCheck /> Unlimited km </Card.Text>
-            <Card.Text className="custom-price"> <span className='pe-1'>€</span>{car.pricePerDay} <span>/ day</span></Card.Text>
+            <Card.Text className="custom-text-km"><FaCheck className='me-1'/> Unlimited km </Card.Text>
+            <Card.Text className="custom-price"> <span className='pe-1'>€</span>{car.pricePerDay} <span className='ms-1'>/ day</span></Card.Text>
           </Col>
         </Row>
       </Card.Body>

@@ -24,7 +24,7 @@ const Bookings = () => {
 
   const getReservations = () => {
     axios
-      .get(`${API_URL}/api/rentals/${user._id}`) // Aquí asumo que user tiene una propiedad "id"
+      .get(`${API_URL}/api/rentals/${user._id}`)
       .then((response) => {
         const reservations = response.data;
 
@@ -38,7 +38,7 @@ const Bookings = () => {
     if (user) {
       getReservations();
     }
-  }, [user]); // Esto ejecutará el efecto cuando el valor de "user" cambie
+  }, [user]); 
 
   if (!reservations.length) {
     return <h2>No bookings yet</h2>;

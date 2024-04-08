@@ -4,8 +4,6 @@ import { Card, Container, Row, Col, Placeholder, Image } from "react-bootstrap";
 import { TbManualGearbox } from "react-icons/tb";
 import { GiCarDoor } from "react-icons/gi";
 import { FaRegUser } from "react-icons/fa";
-import { FaStar } from "react-icons/fa";
-import { FaCheck } from "react-icons/fa6";
 
 function CardReservation({ reservation }) {
   const [ready, setReady] = useState(false);

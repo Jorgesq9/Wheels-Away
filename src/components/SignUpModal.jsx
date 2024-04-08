@@ -13,9 +13,9 @@ function SignUpModal(props, { defaultValueTap }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [driveLicense, setDrive] = useState("");
+  const [driverLicense, setDrive] = useState("");
   const [photo, setPhoto] = useState(
-    "https://source.unsplash.com/600x600/?user"
+    "https://source.unsplash.com/150x100/?user"
   );
   const [key, setKey] = useState("Login");
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -29,7 +29,7 @@ function SignUpModal(props, { defaultValueTap }) {
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { name, email, password, photo, driveLicense };
+    const requestBody = { name, email, password, photo, driverLicense };
     axios
       .post(`${API_URL}/api/auth/signup`, requestBody)
       .then(() => {
@@ -175,7 +175,7 @@ function SignUpModal(props, { defaultValueTap }) {
                   placeholder="name"
                   name="driver"
                   id="driver"
-                  value={driveLicense}
+                  value={driverLicense}
                   onChange={handleDrive}
                   autoFocus
                 />
