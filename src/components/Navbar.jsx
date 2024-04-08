@@ -81,9 +81,8 @@ function OffcanvasExample(props) {
                       <NavDropdown.Item href="/reservations">
                         Reservations
                       </NavDropdown.Item>
-                      <NavDropdown.Divider />
                       <Link
-                        className=""
+                        className="btn-general ms-3 mt-3"
                         onClick={() => {
                           logOutUser();
                           setModalShow(false);

@@ -4,7 +4,7 @@ import CardProduct from "./CardProduct";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-function FilterCar() {
+function FilterCar(props) {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   
@@ -15,7 +15,7 @@ function FilterCar() {
         `${API_URL}/api/cars/available?startDate=${startDate}&endDate=${endDate}`
       )
       .then((response) => {
-        setAvailableCars(response.data);
+        props.setAvailableCars(response.data);
       })
       .catch((error) => {
         console.error("Error fetching available cars", error);

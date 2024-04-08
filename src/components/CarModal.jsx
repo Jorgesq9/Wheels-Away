@@ -1,6 +1,5 @@
 import Modal from "react-bootstrap/Modal";
 import { useEffect, useState, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import {
@@ -18,6 +17,8 @@ import { FaRegUser } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa6";
 import SignUpModal from "./SignUpModal";
+import { Link, useNavigate } from "react-router-dom";
+
 
 const CarModal = (props) => {
   const [car, setCarDetails] = useState(null);
@@ -25,6 +26,7 @@ const CarModal = (props) => {
   const [startDate, setStartDate] = useState(
     new Date().toISOString().split("T")[0]
   );
+  const navigate = useNavigate();
   const [endDate, setEndDate] = useState(
     new Date().toISOString().split("T")[0]
   );
@@ -64,6 +66,7 @@ const CarModal = (props) => {
       })
       .then((response) => {
         console.log("Reservation successfully", response.data);
+        navigate("/reservations")
       })
       .catch((err) => {
         console.log("Error creating a reservation", err);
@@ -111,15 +114,15 @@ const CarModal = (props) => {
                       </Row>
                       <Row>
                         <Col className="d-flex">
-                          <Card.Text className="custom-text-label me-1">
-                            <FaRegUser /> {car.passengers}{" "}
-                          </Card.Text>
-                          <Card.Text className="custom-text-label me-1">
-                            <GiCarDoor /> {car.doors}{" "}
-                          </Card.Text>
-                          <Card.Text className="custom-text-label">
-                            <TbManualGearbox /> {car.transmission}{" "}
-                          </Card.Text>
+                          <p className="custom-text-label me-1">
+                            <FaRegUser className="me-1"/> {car.passengers}{" "}
+                          </p>
+                          <p className="custom-text-label me-1">
+                            <GiCarDoor className="me-1"/> {car.doors}{" "}
+                          </p>
+                          <p className="custom-text-label">
+                            <TbManualGearbox className="me-1"/> {car.transmission}{" "}
+                          </p>
                         </Col>
                       </Row>
                     </Card.Body>
@@ -128,12 +131,12 @@ const CarModal = (props) => {
                       <Row className="align-items-space-between card-title-content ">
                         <Col>
                           <Card.Text className="custom-text-km">
-                            <FaCheck /> Unlimited km{" "}
+                            <FaCheck className="me-1"/> Unlimited km{" "}
                           </Card.Text>
                           <Card.Text className="custom-price">
                             {" "}
                             <span className="pe-1">€</span>
-                            {car.pricePerDay} <span>/day</span>
+                            {car.pricePerDay} <span className="ms-1">/day</span>
                           </Card.Text>
                         </Col>
                       </Row>
@@ -176,8 +179,11 @@ const CarModal = (props) => {
                   )}
                   {!user ? (
                     <>
+                      <span className="text-small ">
+                        To make a reservation you need to be registered
+                      </span>
                       <Link
-                        className="btn-nav"
+                        className="btn-general mt-2"
                         onClick={() => {
                           setModalShow(true);
                         }}
@@ -192,7 +198,7 @@ const CarModal = (props) => {
                     </>
                   ) : (
                     <>
-                      <Button variant="primary" type="submit">
+                      <Button variant="primary" type="submit" onClick={props.onHide}>
                         Reserve
                       </Button>
                     </>

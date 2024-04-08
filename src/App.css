@@ -154,6 +154,24 @@ section.filter-section {
   height: 41px;
   margin-left: 20px;
 }
+.btn-general{
+  background: #ff5c3d;
+  display: inline-block;
+  padding: 8px 18px;
+  width: 100px ;
+  text-align: center;
+  color: white !important;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.btn-general:hover{
+  background-color: #ccc;
+}
+
+.text-small {
+  font-size: 12px;
+}
 
 .filter-car input {
   border-color: transparent;
@@ -463,4 +481,33 @@ img.user-dropdown {
 .modal-profile .modal-footer {
   font-size: 13px;
   justify-content: center;
+}
+
+.brand {
+  background-color: #ff5f00;
+  text-align: center;
+}
+
+.brand h2 {
+  font-size: 50px;
+  font-weight: 900;
+  padding: 0;
+  margin: 0;
+}
+
+.brand p {
+  font-weight: 600;
+}
+
+.info-section{
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.title-info {
+  font-size: 16px;
+}
+
+.title-info svg {
+  font-size: 25px;
 }
