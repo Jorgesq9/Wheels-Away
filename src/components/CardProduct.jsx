@@ -4,9 +4,10 @@ import { TbManualGearbox } from "react-icons/tb";
 import { GiCarDoor } from "react-icons/gi";
 import { FaRegUser } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa6";
 
 import {
-  Card, Carousel, Row, Col, Placeholder,
+  Card, Image, Row, Col, Placeholder,
 } from 'react-bootstrap';
 
 function CardProduct({
@@ -21,7 +22,7 @@ function CardProduct({
 
   if (!ready) {
     return (
-      <Card style={{ width: '18rem' }} className="text-start">
+      <Card style={{ width: '18rem' }} gap="" className="text-start card-car" >
         <Placeholder as={Card.Image} animation="glow">
           <Placeholder className="placeholder-image" xs={6} />
         </Placeholder>
@@ -46,55 +47,35 @@ function CardProduct({
   }
 
   return (
-    <Card className="w-100">
-      <Carousel
-        interval={null}
-        indicators
-        className="custom-carousel-product"
-      >
-        {car.images.map((imageUrl, imageId) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <Carousel.Item key={imageId}>
-            <Card.Img variant="top" src={imageUrl} />
-          </Carousel.Item>
-        ))}
-      </Carousel>
+    <Card className="w-100 card-car">
+     
 
       <Card.Body>
-        <Row>
-          <Col>
-          <Card.Text className='rating'> <span className='icon-rating'><FaStar /></span>  {car.rating}</Card.Text></Col>
-        </Row>
+       
         <Row className="align-items-center card-title-content pt-2">
           <Col>
             <Card.Title className="custom-card-title ">{car.make} {car.model}</Card.Title>
           </Col>
         </Row>
-        <Row className="align-items-center card-title-content pt-3">
-          <Col>
-            <Card.Text className="custom-text"><FaRegUser /> {car.passengers} passengers</Card.Text>
-          </Col>
-          <Col>
-            <Card.Text className="custom-text"><GiCarDoor /> {car.doors} doors</Card.Text>
-          </Col>
-        </Row>
-        <Row className="align-items-center card-title-content pt-2">
-          <Col>
-            <Card.Text className="custom-text">{car.year}</Card.Text>
-          </Col>
-          <Col>
-            <Card.Text className="custom-text"><TbManualGearbox /> {car.transmission} </Card.Text>
+        <Row>
+          <Col className='d-flex'>
+            <Card.Text className="custom-text-label me-1"><FaRegUser /> {car.passengers} </Card.Text>
+            <Card.Text className="custom-text-label me-1"><GiCarDoor /> {car.doors} </Card.Text>
+            <Card.Text className="custom-text-label"><TbManualGearbox /> {car.transmission} </Card.Text>
           </Col>
         </Row>
-        <Row className="align-items-space-between card-title-content pt-3">
-          <Col>
-            <Card.Text className="custom-price">€{car.pricePerDay} <span>/day</span></Card.Text>
-          </Col>
-          <Col>
-            <button className='btn-booking'>Rent Now</button>
-          </Col>
-        </Row>
+       
+        
       
+      </Card.Body>
+      <Image src={car.images[0]}/>
+      <Card.Body>
+      <Row className="align-items-space-between card-title-content ">
+          <Col>
+            <Card.Text className="custom-text-km"><FaCheck /> Unlimited km </Card.Text>
+            <Card.Text className="custom-price"> <span className='pe-1'>€</span>{car.pricePerDay} <span>/ day</span></Card.Text>
+          </Col>
+        </Row>
       </Card.Body>
     </Card>
   );

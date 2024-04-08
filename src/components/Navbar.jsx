@@ -4,38 +4,27 @@ import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../context/auth.context";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from 'react';
 import Logo from "../assets/Logo-wheelsaway.png";
+import SignUpModal from "./SignUpModal";
 
 function OffcanvasExample(props) {
   const location = useLocation();
   const { isLoggedIn, logOutUser } = useContext(AuthContext);
   const { userData } = useContext(AuthContext);
-  console.log("show the state of logged", userData);
-  const [opacity, setOpacity] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const maxScroll = 200; // Ajusta este valor según tu preferencia para la transición
-      const newOpacity = Math.min(scrollPosition / maxScroll, 1); // Limita la opacidad a 1
-      setOpacity(newOpacity);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
+  const [defaultValueTap, setDefaultValueTap] = useState();
+  const [modalShow, setModalShow] = useState(false);
 
   return (
     <>
-      <Navbar key="md" expand="md" className="mb-3" style={{ backgroundColor: `rgba(255, 255, 255, ${opacity})` }}>
+      <Navbar
+        key="md"
+        expand="md"
+        className=""
+        style={{ backgroundColor: `rgba(255, 255, 255, ${props.opacity})` }}
+      >
         <Container fluid>
           <Navbar.Brand href="/">
             <Image className="logo-image" src={Logo} />
@@ -55,24 +44,32 @@ function OffcanvasExample(props) {
               <Nav className="justify-content-end flex-grow-1 pe-3">
                 {!isLoggedIn && !userData && (
                   <>
-                    <Nav.Link href="/login" className="btn-nav">Login</Nav.Link>
+                    <Nav.Link
+                      className="btn-nav"
+                      onClick={() => {
+                        setModalShow(true);
+                      }}
+                    >
+                      Login
+                    </Nav.Link>
 
-                    <Nav.Link href="/signup" className="btn-nav mx-3">Sign Up</Nav.Link>
+                    <SignUpModal
+                      show={modalShow}
+                      onHide={() => setModalShow(false)}
+                    />
                   </>
                 )}
                 {isLoggedIn && userData && (
                   <>
                     <NavDropdown
                       title={
-                        <Image
-                          className="user-dropdown"
-                          src={userData.photo}
-                          roundedCircle
-                        />
+                        <>
+                          Welcome {userData.name}
+                        </>
                       }
                       id={`offcanvasNavbarDropdown-expand-md`}
                     >
-                      <p>Welcome {userData.name}</p>
+                      
 
                       <NavDropdown.Item href="/profile">
                         Profile
@@ -81,12 +78,12 @@ function OffcanvasExample(props) {
                         Reservations
                       </NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <button
-                        className="px-4 py-1 rounded bg-blue-500 text-white hover:bg-blue-400"
-                        onClick={logOutUser}
-                      >
-                        Log Out{" "}
-                      </button>
+                      <Link className="" onClick={() => {
+                        logOutUser()
+                        setModalShow(false)
+                      }}>
+                        Log Out
+                      </Link>
                     </NavDropdown>
                   </>
                 )}
