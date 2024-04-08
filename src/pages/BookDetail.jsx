@@ -231,7 +231,7 @@ const BookDetail = () => {
                     <div className="btn-content">
                       <button onClick={toggleEditForm} className="btn-detail">
                         <MdOutlineModeEdit />
-                        <span className="ms-1">Edit Booking</span>
+                        <span className="ms-1">Edit</span>
                       </button>
                       <button
                         onClick={handleDelete}

@@ -36,7 +36,7 @@ function App() {
 
   return (
     <>
-      <Container fluid className="p-0">
+      <Container fluid className="p-0  pb-5 mb-5 " >
         <Navbar opacity={opacity}/>
         <Routes>
           <Route path="/" element={<Dashboard />} />
@@ -47,6 +47,8 @@ function App() {
           <Route path="/user/:id" element={<Profile />} />
         </Routes>
       </Container>
+
+      <Footer/>
     </>
   );
 }

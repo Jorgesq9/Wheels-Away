@@ -98,21 +98,36 @@ function HomePage() {
       <section className="info-section pt-5 pb-5 bg-white">
         <Container>
           <Row>
-            <Col>
+            <Col   xs="12"
+                sm="12"
+                md="4"
+                lg="4"
+                xl="4"
+                xxl="4">
               <p className="title-info">
                 <BiWorld className="me-2"/>
                 Global reach
               </p>
               <p className="text-inf">2,000+ SIXT stations in over 105 countries</p>
             </Col>
-            <Col>
+            <Col xs="12"
+                sm="12"
+                md="4"
+                lg="4"
+                xl="4"
+                xxl="4">
               <p className="title-info">
                 <FaCar className="me-2"/>
                 Distinctive fleet
               </p>
               <p className="text-inf">From high-end convertibles to premium SUVs</p>
             </Col>
-            <Col>
+            <Col xs="12"
+                sm="12"
+                md="4"
+                lg="4"
+                xl="4"
+                xxl="4">
               <p className="title-info">
                 <GiLoveMystery className="me-2"/>
                 Exceptional service
@@ -127,8 +142,7 @@ function HomePage() {
 
         <Container fluid className="px-5 mt-5">
           <Row gap={2}>
-            {!availableCars &&
-              sliceCars?.map((car, index) => (
+            {sliceCars?.map((car, index) => (
                 <>
                   <Col
                     key={index}

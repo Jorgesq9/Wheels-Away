@@ -173,7 +173,7 @@ const CarModal = (props) => {
                   </Form.Group>
                   {finalPrice !== 0 && (
                     <>
-                      <h5 className="pt-3">Your final price</h5>
+                      <h6 className="pt-2">Your final price</h6>
                       <p className="pb-2">{finalPrice} €</p>
                     </>
                   )}
