@@ -9,6 +9,7 @@ import { AuthContext } from "../context/auth.context";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../assets/Logo-wheelsaway.png";
 import SignUpModal from "./SignUpModal";
+import ProfileModal from "./ProfileModal";
 
 function OffcanvasExample(props) {
   const location = useLocation();
@@ -16,6 +17,7 @@ function OffcanvasExample(props) {
   const { userData } = useContext(AuthContext);
   const [defaultValueTap, setDefaultValueTap] = useState();
   const [modalShow, setModalShow] = useState(false);
+  const [modalShowPro, setModalShowPro] = useState(false);
 
   return (
     <>
@@ -62,41 +64,37 @@ function OffcanvasExample(props) {
                 {isLoggedIn && userData && (
                   <>
                     <NavDropdown
-                      title={
-                        <>
-                          Welcome {userData.name}
-                        </>
-                      }
+                      title={<>Welcome {userData.name}</>}
                       id={`offcanvasNavbarDropdown-expand-md`}
                     >
-                      
-
-                      <NavDropdown.Item href="/profile">
+                      <NavDropdown.Item className=""
+                      onClick={() => {
+                        setModalShowPro(true);
+                      }}>
                         Profile
                       </NavDropdown.Item>
+
+                      <ProfileModal
+                        show={modalShowPro}
+                        onHide={() => setModalShowPro(false)}
+                      />
                       <NavDropdown.Item href="/reservations">
                         Reservations
                       </NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <Link className="" onClick={() => {
-                        logOutUser()
-                        setModalShow(false)
-                      }}>
+                      <Link
+                        className=""
+                        onClick={() => {
+                          logOutUser();
+                          setModalShow(false);
+                        }}
+                      >
                         Log Out
                       </Link>
                     </NavDropdown>
                   </>
                 )}
               </Nav>
-              {/* <Form className="d-flex">
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-success">Search</Button>
-                </Form> */}
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>

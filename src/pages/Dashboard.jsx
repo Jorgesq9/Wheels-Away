@@ -23,7 +23,6 @@ const API_URL = import.meta.env.VITE_API_URL;
 function HomePage() {
   const [cars, setCars] = useState([]);
   const [id, setId] = useState(null)
-  const [singleCar, setSingleCar] = useState()
   const [availableCars, setAvailableCars] = useState(null);
   const [modalShow, setModalShow] = useState(false);
 
