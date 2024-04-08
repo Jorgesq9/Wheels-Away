@@ -526,3 +526,36 @@ footer{
   flex-shrink: 0;
   background-color: rgba(26, 26, 26, 1) !important;
 }
+
+@media screen and (min-width: 630px) and (max-width: 1090px) {
+  img.floating-car {
+    height: 321px;
+    right: 0;
+    position: absolute;
+    margin-top: -78px;
+}
+  
+  /* Otros estilos específicos para pantallas medianas */
+  /* Por ejemplo, puede que quieras cambiar el tamaño de fuente o el espaciado */
+}
+
+@media screen and (min-width: 630px) and (max-width: 929px) {
+  img.floating-car {
+    height: 251px;
+    right: 0;
+    position: absolute;
+    margin-top: -19px;
+}
+  
+  /* Otros estilos específicos para pantallas medianas */
+  /* Por ejemplo, puede que quieras cambiar el tamaño de fuente o el espaciado */
+}
+
+@media screen and (max-width: 700px) {
+  img.floating-car {
+    display: none;
+}
+  
+  /* Otros estilos específicos para pantallas medianas */
+  /* Por ejemplo, puede que quieras cambiar el tamaño de fuente o el espaciado */
+}
