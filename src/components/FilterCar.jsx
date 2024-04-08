@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
 import CardProduct from "./CardProduct";
-
+import {
+  Card,
+  Image,
+  Form,
+  Button,
+  Row,
+  Col,
+  Container,
+} from "react-bootstrap";
 const API_URL = import.meta.env.VITE_API_URL;
 
 function FilterCar(props) {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  
 
   const fetchAvailableCars = () => {
     axios
@@ -25,17 +32,25 @@ function FilterCar(props) {
   return (
     <>
       <div className="filter-car">
-        <input
-          type="date"
-          value={startDate}
-          onChange={(e) => setStartDate(e.target.value)}
-        />
-        <input
-          type="date"
-          value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
-        />
-        <button onClick={fetchAvailableCars}>Go!</button>
+        <Row>
+          <Col xs="12" md="4" lg="4" xl="4" xxl="4" className="filter-input">
+            <input
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+            />
+          </Col>
+          <Col xs="12" md="4" lg="4" xl="4" xxl="4" className="filter-input">
+            <input
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+            />
+          </Col>
+          <Col xs="12" md="4" lg="4" xl="4" xxl="4" className="filter-input">
+            <button onClick={fetchAvailableCars}>Go!</button>
+          </Col>
+        </Row>
       </div>
       {/* <div className="available-cars">
         <h2></h2>

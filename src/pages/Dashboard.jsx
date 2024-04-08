@@ -23,7 +23,7 @@ function HomePage() {
   const [availableCars, setAvailableCars] = useState(null);
   const [modalShow, setModalShow] = useState(false);
 
-  const sliceCars = cars.slice(0,6);
+  const sliceCars = cars.slice(0,8);
 
   const getAllCars = () => {
     axios
@@ -140,7 +140,7 @@ function HomePage() {
       <section className="featured-cars">
         <h2 className="text-center pt-5"> Explore our Top Rated Cars</h2>
 
-        <Container fluid className="px-5 mt-5">
+        <Container  className="px-5 mt-5">
           <Row gap={2}>
             {sliceCars?.map((car, index) => (
                 <>

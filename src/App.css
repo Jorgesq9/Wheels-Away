@@ -527,6 +527,11 @@ footer{
   background-color: rgba(26, 26, 26, 1) !important;
 }
 
+.filter-input {
+  display: flex;
+  align-items: center;
+}
+
 @media screen and (min-width: 630px) and (max-width: 1090px) {
   img.floating-car {
     height: 321px;
@@ -554,6 +559,10 @@ footer{
 @media screen and (max-width: 700px) {
   img.floating-car {
     display: none;
+}
+
+.filter-input {
+  margin-top: 10px !important;
 }
   
   /* Otros estilos específicos para pantallas medianas */
