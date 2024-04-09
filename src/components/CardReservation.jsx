@@ -45,14 +45,14 @@ function CardReservation({ reservation }) {
       <Card.Body className="pb-0">
         <Container>
           <Row className="card-title-content d-flex">
-            <Col xs sm md="5" lg="5" xl="5" xxl="5">
+            <Col xs="5" sm="5" md="5" lg="5" xl="5" xxl="5">
               <Image className="w-100" src={reservation.car.images[0]}></Image>
             </Col>
-            <Col xs sm md="7" lg="7" xl="7" xxl="7">
+            <Col xs="7" sm="7" md="7" lg="7" xl="7" xxl="7">
               <Card.Body>
                 <Row className="align-items-center card-title-content pt-2">
                   <Col>
-                    <Card.Title className="custom-card-title ">
+                    <Card.Title className="custom-card-title text-ellipsis text-overflow">
                       {reservation.car.make} {reservation.car.model}
                     </Card.Title>
                   </Col>

@@ -59,7 +59,7 @@ const Bookings = () => {
       <h1 className="pb-3">Bookings</h1>
       <Row className="card-title-content d-flex">
         {reservations.map((reservation, index) => (
-          <Col xs sm="12" md="6" lg="6" xl="4" xxl="4">
+          <Col xs="12" sm="12" md="12" lg="6" xl="6" xxl="4">
             <Link
               className="custom-card-link"
               to={`/reservations/${reservation._id}`}
