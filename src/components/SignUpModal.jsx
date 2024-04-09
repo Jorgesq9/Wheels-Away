@@ -51,9 +51,9 @@ function SignUpModal(props, { defaultValueTap }) {
       .post(`${API_URL}/api/auth/login`, requestBody)
       .then((response) => {
         console.log("JWT token", response.data.authToken);
-
         storeToken(response.data.authToken);
         authenticateUser();
+        props.onHide()
         navigate("/");
       })
       .catch((error) => {
@@ -107,7 +107,7 @@ function SignUpModal(props, { defaultValueTap }) {
                 />
               </Form.Group>
               <Form.Group className="mb-3 d-flex justify-content-end">
-                <button type="submit" className="btn">
+                <button type="submit" className="btn" >
                   Log In
                 </button>
                 <a onClick={props.onHide} className=" btn-close close-btn"></a>
