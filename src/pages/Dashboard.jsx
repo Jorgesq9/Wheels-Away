@@ -170,7 +170,9 @@ function HomePage() {
         onLogin={() => {
           setSignUpModalShow(true); 
           setModalShow(false);  
-        }}
+        }
+          
+      }
       />
       <SignUpModal
         show={signUpModalShow}
