@@ -1,72 +1,70 @@
 {
     "nav": {
-      "languages": "Languages",
-      "welcome": "welcome",
-      "profile":"profile",
-      "reservations":"Reservations",
-      "logout":"Log Out"
+      "languages": "Idiomas",
+      "welcome": "Bienvenido",
+      "profile":"perfil",
+      "reservations":"Reservas",
+      "logout":"Cerrar Sesion"
     },
     "main": {
-        "drive":"Drive Your",
-        "dreams":" Dreams",
-        "explore": "Explore Worldwide Options: Download Our App Today!",
-        "go": "Go!",
-        "title":"RENT FIRST CLASS.",
-        "subtitle":"PAY ECONOMY",
-        "info":"Premium car rental at affordable rates. Worldwide.",
-        "globalTitle":"Global reach",
-        "globalInfo":"2,000+ SIXT stations in over 105 countries",
-        "distTitle":"Distinctive fleet",
-        "distInfo":"From high-end convertibles to premium SUVs",
-        "serviceTitle":"Exceptional service",
-        "serviceInfo":"Stress-free, trustworthy, no hidden costs",
-        "rated":"Explore our Top Rated Cars"
+        "drive":"Conduce ",
+        "dreams":" Sueños",
+        "explore": "Explora las opciones alrededor del mundo: Descarga la App Hoy!",
+        "go": "Vamos!",
+        "title":"ALQUILA PRIMERA CLASE",
+        "subtitle":"PAGA ECONOMICO",
+        "info":"Coches de lujo a precios asequibles alrededor del mundo.",
+        "globalTitle":"Alcance global.",
+        "globalInfo":"Más de 2000 estaciones SIXT en más de 105 países",
+        "distTitle":"Flota distintiva",
+        "distInfo":"Desde convertibles de alta gama hasta SUV premium",
+        "serviceTitle":"Servicio excepcional",
+        "serviceInfo":"Sin estrés, confiable, sin costos ocultos",
+        "rated":"Explora nuestros coches mejor calificados"
     },
 
     "car": {
         "manual": "Manual",
-        "automatic":"Automatic",
-        "day":"Day",
-        "unlimited":"Unlimited km",
-        "rent":"Rent your Car",
-        "start":"Start Date",
-        "end":"End Date",
-        "reserve":"Reserve",
-        "alert":"To make a reservation you need to be registered",
-        "login":"Log In"
+        "automatic":"Automático",
+        "day":"Dia",
+        "unlimited":"Km ilimitados",
+        "rent":"Alquila tu coche",
+        "start":"Fecha de inicio",
+        "end":"Fecha de finalización ",
+        "reserve":"Reserva",
+        "alert":"Para hacer una reserva es necesario estar registrado",
+        "login":"Iniciar sesión"
     },
 
     "modals": {
-        "login":"Log In",
-        "signUp":"Sign Up",
-        "create": "Create Account",
-        "email":"Email",
-        "password":"password",
-        "name":"Name",
-        "license":"Driver License",
-        "notAccount":"Don't have an account yet?",
-        "havAccount": "Already have an account?",
-        "created":"your have license in from"
+        "login":"Iniciar sesión",
+        "signUp":"Registrarse",
+        "create": "Crear una cuenta",
+        "email":"Correo electrónico",
+        "password":"Contraseña",
+        "name":"Nombre",
+        "license":"Carnet de conducir",
+        "notAccount":"¿Aún no tienes una cuenta?",
+        "havAccount": "¿Ya tienes una cuenta?",
+        "created":"¿Tienes carnet de conducir en relga?"
     },
     "bookings": {
-        "booking":"Bookings",
-        "start":"Start Date",
-        "end":"End Date",
-        "rent":"Rent your car",
-        "finalPrice":"Your final price",
-        "price":"Price",
-        "notBook": "No bookings yet",
-        "detailTitle":"Your Reservation details",
-        "edit":"Edit",
-        "delete":"Delete",
-        "id":"Reservation ID:",
-        "driver":"Driver",
-        "detailBook":"Bookings details",
-        "total":"Total Price",
-        "save":"Save Changes"
+        "booking":"Reservas",
+        "start":"Fecha de Inicio",
+        "end":"Fecha de Finalización",
+        "price":"Precio",
+        "notBook": "Aún no hay reservas",
+        "detailTitle":"Los detalles de su reserva",
+        "edit":"Editar",
+        "delete":"Eliminar",
+        "id":"Id de la Reserva",
+        "driver":"Conductor",
+        "detailBook":"Detalles de la reserva",
+        "total":"Precio Total",
+        "save":"Guardar Cambios"
     },
     "footer":{
-        "developed":"Developed by:"
+        "developed":"Desarrolado por:"
     }
 
 
