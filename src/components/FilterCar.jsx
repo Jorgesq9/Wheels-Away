@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
-import CardProduct from "./CardProduct";
+import { useTranslation } from "react-i18next";
 import {
-  Card,
-  Image,
-  Form,
-  Button,
   Row,
   Col,
-  Container,
 } from "react-bootstrap";
 const API_URL = import.meta.env.VITE_API_URL;
 
 function FilterCar(props) {
+
+  const { t, i18n } = useTranslation();
+
   const formatDate = (date) => {
     let d = new Date(date),
         month = '' + (d.getMonth() + 1),
@@ -63,16 +61,10 @@ function FilterCar(props) {
             />
           </Col>
           <Col xs="12" md="4" lg="4" xl="4" xxl="4" className="filter-input">
-            <button onClick={fetchAvailableCars}>Go!</button>
+            <button onClick={fetchAvailableCars}>{t("main.go")}</button>
           </Col>
         </Row>
       </div>
-      {/* <div className="available-cars">
-        <h2></h2>
-        {availableCars.map((car) => (
-          <CardProduct key={car._id} car={car} />
-        ))}
-      </div> */}
     </>
   );
 }

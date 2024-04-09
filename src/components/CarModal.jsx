@@ -14,13 +14,13 @@ import {
 import { TbManualGearbox } from "react-icons/tb";
 import { GiCarDoor } from "react-icons/gi";
 import { FaRegUser } from "react-icons/fa";
-import { FaStar } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa6";
 import SignUpModal from "./SignUpModal";
 import { Link, useNavigate } from "react-router-dom";
-
+import { useTranslation } from "react-i18next";
 
 const CarModal = (props) => {
+  const { t, i18n } = useTranslation();
   const [car, setCarDetails] = useState(null);
   const [modalShow, setModalShow] = useState(false);
   const [startDate, setStartDate] = useState(
@@ -121,7 +121,7 @@ const CarModal = (props) => {
                             <GiCarDoor className="me-1"/> {car.doors}{" "}
                           </p>
                           <p className="custom-text-label">
-                            <TbManualGearbox className="me-1"/> {car.transmission}{" "}
+                            <TbManualGearbox className="me-1"/> {car.transmission === "automatic" ? t("car.automatic"): t("car.manual")}{" "}
                           </p>
                         </Col>
                       </Row>
@@ -131,12 +131,12 @@ const CarModal = (props) => {
                       <Row className="align-items-space-between card-title-content ">
                         <Col>
                           <Card.Text className="custom-text-km">
-                            <FaCheck className="me-1"/> Unlimited km{" "}
+                            <FaCheck className="me-1"/> {t("car.unlimited")}
                           </Card.Text>
                           <Card.Text className="custom-price">
                             {" "}
                             <span className="pe-1">€</span>
-                            {car.pricePerDay} <span className="ms-1">/day</span>
+                            {car.pricePerDay} <span className="ms-1">/{t("car.day")}</span>
                           </Card.Text>
                         </Col>
                       </Row>
@@ -154,9 +154,9 @@ const CarModal = (props) => {
                 className="px-0 mx-0 form-detail"
               >
                 <Form onSubmit={handleSubmit} className="form-content">
-                  <h4 className="pb-4">Rent your Car</h4>
+                  <h4 className="pb-4">{t("bookings.rent")}</h4>
                   <Form.Group controlId="startDate" className="pb-3">
-                    <Form.Label>Start Date</Form.Label>
+                    <Form.Label>{t("bookings.start")}</Form.Label>
                     <Form.Control
                       type="date"
                       value={startDate}
@@ -164,7 +164,7 @@ const CarModal = (props) => {
                     />
                   </Form.Group>
                   <Form.Group controlId="endDate" className="pb-3">
-                    <Form.Label>End Date</Form.Label>
+                    <Form.Label>{t("bookings.end")}</Form.Label>
                     <Form.Control
                       type="date"
                       value={endDate}
@@ -173,21 +173,21 @@ const CarModal = (props) => {
                   </Form.Group>
                   {finalPrice !== 0 && (
                     <>
-                      <h6 className="pt-2">Your final price</h6>
+                      <h6 className="pt-2">{t("bookings.finalPrice")}</h6>
                       <p className="pb-2">{finalPrice} €</p>
                     </>
                   )}
                   {!user ? (
                     <>
                       <span className="text-small ">
-                        To make a reservation you need to be registered
+                      {t("car.alert")}
                       </span>
           
                       <Link
                         className="btn-general mt-2"
                         onClick={props.onLogin} 
                       >
-                        Login
+                        {t("bookings.login")}
                       </Link>
 
 
@@ -199,7 +199,7 @@ const CarModal = (props) => {
                   ) : (
                     <>
                       <Button variant="primary" type="submit" onClick={props.onHide}>
-                        Reserve
+                      {t("car.reserve")}
                       </Button>
                     </>
                   )}

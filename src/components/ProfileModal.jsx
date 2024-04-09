@@ -1,10 +1,11 @@
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
-import { Card, Container, Row, Col, Placeholder, Image } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 function ProfileModal(props) {
+  const { t, i18n } = useTranslation();
   const { user, userData } = useContext(AuthContext);
   function formatDate(dateString) {
     const date = new Date(dateString);
@@ -26,7 +27,7 @@ function ProfileModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter" className="title-modal">
-          Driver License
+        {t("modals.license")}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -37,19 +38,19 @@ function ProfileModal(props) {
           <Col className="" xs="8" sm="8" md="8" lg="8" xl="8" xxl="8">
             <Row className="ms-2">
               <Col className="">
-                <p className="mb-0">Name</p>
+                <p className="mb-0">{t("modals.name")}</p>
                 <h6>{userData.name}</h6>
               </Col>
             </Row>
             <Row className="ms-2">
               <Col>
-                <p className="mb-0">Email</p>
+                <p className="mb-0">{t("modals.email")}</p>
                 <p className="mb-0">{userData.email}</p>
               </Col>
             </Row>
             <Row className="ms-2">
               <Col>
-                <p className="mb-0">Driver License</p>
+                <p className="mb-0">{t("modals.license")}</p>
                 <p className="mb-0">{userData.driverLicense}</p>
               </Col>
             </Row>
@@ -57,7 +58,7 @@ function ProfileModal(props) {
         </Row>
       </Modal.Body>
       <Modal.Footer >
-        <p className="text-center">your have license in from {formatDate(userData.createdAt)}</p>
+        <p className="text-center">{t("modals.created")} {formatDate(userData.createdAt)}</p>
       </Modal.Footer>
     </Modal>
   );
