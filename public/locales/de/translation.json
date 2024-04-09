@@ -1,71 +1,69 @@
 {
   "nav": {
-    "languages": "Languages",
-    "welcome": "welcome",
-    "profile":"profile",
-    "reservations":"Reservations",
-    "logout":"Log Out"
+    "languages": "Sprachen",
+    "welcome": "Willkommen",
+    "profile": "Profil",
+    "reservations": "Reservierungen",
+    "logout": "Abmelden"
   },
   "main": {
-      "drive":"Drive Your",
-      "dreams":" Dreams",
-      "explore": "Explore Worldwide Options: Download Our App Today!",
-      "go": "Go!",
-      "title":"RENT FIRST CLASS.",
-      "subtitle":"PAY ECONOMY",
-      "info":"Premium car rental at affordable rates. Worldwide.",
-      "globalTitle":"Global reach",
-      "globalInfo":"2,000+ SIXT stations in over 105 countries",
-      "distTitle":"Distinctive fleet",
-      "distInfo":"From high-end convertibles to premium SUVs",
-      "serviceTitle":"Exceptional service",
-      "serviceInfo":"Stress-free, trustworthy, no hidden costs",
-      "rated":"Explore our Top Rated Cars"
+    "drive": "Fahren Sie Ihren",
+    "dreams": " Traum",
+    "explore": "Weltweite Optionen erkunden: Laden Sie noch heute unsere App herunter!",
+    "go": "Los!",
+    "title": "ERSTKLASSIG MIETEN.",
+    "subtitle": "ZUM SPARPREIS",
+    "info": "Premium Autovermietung zu erschwinglichen Preisen. Weltweit.",
+    "globalTitle": "Weltweite Reichweite",
+    "globalInfo": "Über 2.000 SIXT-Stationen in mehr als 105 Ländern",
+    "distTitle": "Außergewöhnliche Flotte",
+    "distInfo": "Von hochwertigen Cabrios bis zu Premium-SUVs",
+    "serviceTitle": "Außergewöhnlicher Service",
+    "serviceInfo": "Stressfrei, vertrauenswürdig, keine versteckten Kosten",
+    "rated": "Entdecken Sie unsere Top-bewerteten Autos"
   },
-
   "car": {
-      "manual": "Manual",
-      "automatic":"Automatic",
-      "day":"Day",
-      "unlimited":"Unlimited km",
-      "rent":"Rent your Car",
-      "start":"Start Date",
-      "end":"End Date",
-      "reserve":"Reserve",
-      "alert":"To make a reservation you need to be registered",
-      "login":"Log In"
+    "manual": "Manuell",
+    "automatic": "Automatik",
+    "day": "Tag",
+    "unlimited": "Unbegrenzte km",
+    "rent": "Mieten Sie Ihr Auto",
+    "start": "Anfangsdatum",
+    "end": "Enddatum",
+    "reserve": "Reservieren",
+    "alert": "Um eine Reservierung vorzunehmen, müssen Sie registriert sein",
+    "login": "Anmelden"
   },
-
   "modals": {
-      "login":"Log In",
-      "signUp":"Sign Up",
-      "create": "Create Account",
-      "email":"Email",
-      "password":"password",
-      "name":"Name",
-      "license":"Driver License",
-      "notAccount":"Don't have an account yet?",
-      "havAccount": "Already have an account?",
-      "created":"your have license in from"
+    "login": "Anmelden",
+    "signUp": "Registrieren",
+    "create": "Konto erstellen",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "name": "Name",
+    "license": "Führerschein",
+    "notAccount": "Noch kein Konto?",
+    "havAccount": "Schon ein Konto?",
+    "created": "Sie haben einen Führerschein in von"
   },
   "bookings": {
-      "booking":"Bookings",
-      "start":"Start Date",
-      "end":"End Date",
-      "price":"Price",
-      "notBook": "No bookings yet",
-      "detailTitle":"Your Reservation details",
-      "edit":"Edit",
-      "delete":"Delete",
-      "id":"Reservation ID:",
-      "driver":"Driver",
-      "detailBook":"Bookings details",
-      "total":"Total Price",
-      "save":"Save Changes"
+    "booking": "Buchungen",
+    "start": "Anfangsdatum",
+    "end": "Enddatum",
+    "rent":"Mieten Sie Ihr Auto",
+    "price": "Preis",
+    "finalPrice":"Ihr Endpreis",
+    "notBook": "Noch keine Buchungen",
+    "detailTitle": "Ihre Reservierungsdetails",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "id": "Reservierungs-ID:",
+    "driver": "Fahrer",
+    "detailBook": "Buchungsdetails",
+    "total": "Gesamtpreis",
+    "save": "Änderungen speichern"
   },
-  "footer":{
-      "developed":"Developed by:"
+  "footer": {
+    "developed": "Entwickelt von:"
   }
-
-
 }

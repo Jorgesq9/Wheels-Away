@@ -1,7 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
-import DetailPage from "./pages/DetailPage";
 import Bookings from "./pages/Bookings";
 import Navbar from "./components/Navbar";
 import Container from "react-bootstrap/Container";
@@ -23,7 +22,6 @@ function App() {
         <Navbar opacity={opacity}/>
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/details/:id" element={<DetailPage setOpacity={setOpacity} />} />
           <Route path="/reservations" element={<Bookings />} />
           <Route path="/reservations/:rentalId" element={<BookDetail />} />
           <Route path="*" element={<ErrorPage />}/>

@@ -17,10 +17,12 @@ import { GiCarDoor } from "react-icons/gi";
 import { FaRegUser } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const BookDetail = () => {
+  const { t, i18n } = useTranslation();
   const [booking, setBooking] = useState(null);
   const [editForm, setEditForm] = useState({
     name: "",
@@ -92,7 +94,7 @@ const BookDetail = () => {
     <div>
       {booking ? (
         <div className="p-5">
-          <h3>Your Reservation details...</h3>
+          <h3>{t("bookings.detailTitle")}</h3>
           <Card className="w-100 card mt-4">
             <Card.Body>
               <Container>
@@ -121,10 +123,10 @@ const BookDetail = () => {
                             <GiCarDoor /> {booking.car.doors}{" "}
                           </Card.Text>
                           <Card.Text className="custom-text-label-detail me-1">
-                            <TbManualGearbox /> {booking.car.transmission}{" "}
+                            <TbManualGearbox /> {booking.car.transmission === "automatic" ? t("car.automatic"): t("car.manual")}{" "}
                           </Card.Text>
                           <Card.Text className="custom-text-label-detail">
-                            <FaCheck className="me-1 icon-check" /> Unlimited km{" "}
+                            <FaCheck className="me-1 icon-check" /> {t("car.unlimited")}{" "}
                           </Card.Text>
                         </Col>
                       </Row>
@@ -143,19 +145,19 @@ const BookDetail = () => {
                     className=""
                   >
                     <p className="pt-5 mt-2 title-text">
-                      Reservation ID:<span>{booking._id}</span>{" "}
+                    {t("bookings.id")}<span>{booking._id}</span>{" "}
                     </p>
                     <div className="user-content">
-                      <h6 className="title-text mb-1">Driver</h6>
+                      <h6 className="title-text mb-1">{t("bookings.driver")}</h6>
                       <Row>
                         <Col>
-                          <p className="mb-0 subtitle-text">Name: </p>
+                          <p className="mb-0 subtitle-text">{t("modals.name")} </p>
                           <p className="mb-0 normal-text">
                             {booking.user.name}
                           </p>
                         </Col>
                         <Col>
-                          <p className="mb-0 subtitle-text">email: </p>
+                          <p className="mb-0 subtitle-text">{t("modals.email")} </p>
                           <p className="mb-0 normal-text">
                             {booking.user.email}
                           </p>
@@ -163,19 +165,19 @@ const BookDetail = () => {
                       </Row>
                     </div>
                     <div className="book-content mt-2">
-                      <h6 className="title-text mb-1">Booking details</h6>
+                      <h6 className="title-text mb-1">{t("bookings.detailBook")}</h6>
                       {!isEditing && (
                         <>
                           <Row>
                             <Col>
-                              <p className="mb-0 subtitle-text">Start Date: </p>
+                              <p className="mb-0 subtitle-text">{t("bookings.start")} </p>
                               <p className="mb-0 normal-text">
                                 {formatDate(booking.startDate)}
                               </p>
                             </Col>
                             <Col>
                               <p className="mb-0 subtitle-text">
-                                Return Date:{" "}
+                              {t("bookings.end")}{" "}
                               </p>
                               <p className="mb-0 normal-text">
                                 {formatDate(booking.endDate)}
@@ -183,7 +185,7 @@ const BookDetail = () => {
                             </Col>
                             <Col>
                               <p className="mb-0 subtitle-text">
-                                Total price:{" "}
+                              {t("bookings.total")}{" "}
                               </p>
                               <p className="mb-0 price-text">
                                 {booking.totalPrice} €
@@ -198,7 +200,7 @@ const BookDetail = () => {
                             <Row className="d-flex justify-content-center">
                               <Col>
                                 <p className="mb-0 subtitle-text">
-                                  Start Date:{" "}
+                                {t("bookings.start")}{" "}
                                 </p>
                                 <input
                                   type="date"
@@ -209,7 +211,7 @@ const BookDetail = () => {
                               </Col>
                               <Col>
                                 <p className="mb-0 subtitle-text">
-                                  Return Date:{" "}
+                                {t("bookings.end")}{" "}
                                 </p>
                                 <input
                                   type="date"
@@ -221,7 +223,7 @@ const BookDetail = () => {
                             </Row>
                             <div  className="d-flex justify-content-start w-100 mt-3">
                              
-                                <button type="submit" className="btn-edit-reserve">Save Changes</button>
+                                <button type="submit" className="btn-edit-reserve">{t("bookings.save")}</button>
                             
                             </div>
                           </form>
@@ -231,14 +233,14 @@ const BookDetail = () => {
                     <div className="btn-content">
                       <button onClick={toggleEditForm} className="btn-detail">
                         <MdOutlineModeEdit />
-                        <span className="ms-1">Edit</span>
+                        <span className="ms-1">{t("bookings.edit")}</span>
                       </button>
                       <button
                         onClick={handleDelete}
                         className="btn-detail ms-3"
                       >
                         <MdOutlineDeleteOutline />
-                        <span className="ms-1">Delete</span>
+                        <span className="ms-1">{t("bookings.delete")}</span>
                       </button>
                     </div>
                   </Col>

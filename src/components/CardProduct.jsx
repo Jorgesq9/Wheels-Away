@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { TbManualGearbox } from "react-icons/tb";
 import { GiCarDoor } from "react-icons/gi";
 import { FaRegUser } from "react-icons/fa";
-import { FaStar } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 
 import {
   Card, Image, Row, Col, Placeholder
@@ -14,6 +14,7 @@ function CardProduct({
   car
 }) {
   const [ready, setReady] = useState(false);
+  const { t, i18n } = useTranslation();
 
   setTimeout(() => {
     if (!ready) setReady(true);
@@ -61,7 +62,7 @@ function CardProduct({
           <Col className='d-flex'>
             <p className="custom-text-label me-1"><FaRegUser className='me-1'/> {car.passengers} </p>
             <p className="custom-text-label me-1"><GiCarDoor className='me-1'/> {car.doors} </p>
-            <p className="custom-text-label"><TbManualGearbox className='me-1'/> {car.transmission} </p>
+            <p className="custom-text-label"><TbManualGearbox className='me-1'/> {car.transmission === "automatic" ? t('car.automatic'):t('car.manual') } </p>
           </Col>
         </Row>
        
@@ -72,8 +73,8 @@ function CardProduct({
       <Card.Body>
       <Row className="align-items-space-between card-title-content ">
           <Col>
-            <Card.Text className="custom-text-km"><FaCheck className='me-1'/> Unlimited km </Card.Text>
-            <Card.Text className="custom-price"> <span className='pe-1'>€</span>{car.pricePerDay} <span className='ms-1'>/ day</span></Card.Text>
+            <Card.Text className="custom-text-km"><FaCheck className='me-1'/> {t('car.unlimited')} </Card.Text>
+            <Card.Text className="custom-price"> <span className='pe-1'>€</span>{car.pricePerDay} <span className='ms-1'>/ {t('car.day')}</span></Card.Text>
           </Col>
         </Row>
       </Card.Body>

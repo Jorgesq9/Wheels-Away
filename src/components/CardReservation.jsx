@@ -4,8 +4,10 @@ import { Card, Container, Row, Col, Placeholder, Image } from "react-bootstrap";
 import { TbManualGearbox } from "react-icons/tb";
 import { GiCarDoor } from "react-icons/gi";
 import { FaRegUser } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 function CardReservation({ reservation }) {
+  const { t, i18n } = useTranslation();
   const [ready, setReady] = useState(false);
   function formatDate(dateString) {
     const date = new Date(dateString);
@@ -66,18 +68,18 @@ function CardReservation({ reservation }) {
                       <GiCarDoor /> {reservation.car.doors}{" "}
                     </Card.Text>
                     <Card.Text className="custom-text-label mt-1 mb-0">
-                      <TbManualGearbox /> {reservation.car.transmission}{" "}
+                      <TbManualGearbox /> {reservation.car.transmission === "automatic" ? t("car.automatic"): t("car.manual")}{" "}
                     </Card.Text>
                   </Col>
                 </Row>
                 <Row className="">
                   <Col className="d-flex">
                     <Card.Text className="custom-text-label me-1 mt-1 mb-0 bolder-type">
-                      Booking start
+                    {t('bookings.start')}
                      
                     </Card.Text>
                     <Card.Text className="custom-text-label me-1 mt-1 mb-0 bolder-type ">
-                      Booking End
+                    {t('bookings.end')}
                       
                     </Card.Text>
                   </Col>
@@ -97,7 +99,7 @@ function CardReservation({ reservation }) {
                 <Row className="">
                   <Col className="d-flex">
                     <Card.Text className="custom-text-label me-1 mt-1 mb-0">
-                      Price
+                    {t('bookings.price')}
                       {" "}
                       <span className="reservation-price ms-1 me-1">{reservation.totalPrice}</span> €
                     </Card.Text>

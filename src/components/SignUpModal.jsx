@@ -8,8 +8,10 @@ import Tabs from "react-bootstrap/Tabs";
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import Form from "react-bootstrap/Form";
+import { useTranslation } from "react-i18next";
 
 function SignUpModal(props, { defaultValueTap }) {
+  const { t, i18n } = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -80,10 +82,10 @@ function SignUpModal(props, { defaultValueTap }) {
           <Tab eventKey="Login" title="Login">
             <Form onSubmit={handleLoginSubmit}>
               <h5 className="text-2xl font-semibold text-gray-700 mb-6 sticky left-0">
-                Log In
+                {t("modals.login")}
               </h5>
               <Form.Group className="mb-3">
-                <Form.Label>Email</Form.Label>
+                <Form.Label>{t("modals.email")}</Form.Label>
                 <Form.Control
                   type="email"
                   placeholder="name@example.com"
@@ -95,7 +97,7 @@ function SignUpModal(props, { defaultValueTap }) {
                 />
               </Form.Group>
               <Form.Group className="mb-3">
-                <Form.Label>Password</Form.Label>
+                <Form.Label>{t("modals.password")}</Form.Label>
                 <Form.Control
                   type="password"
                   placeholder="********"
@@ -108,7 +110,7 @@ function SignUpModal(props, { defaultValueTap }) {
               </Form.Group>
               <Form.Group className="mb-3 d-flex justify-content-end">
                 <button type="submit" className="btn" >
-                  Log In
+                {t("modals.login")}
                 </button>
                 <a onClick={props.onHide} className=" btn-close close-btn"></a>
               </Form.Group>
@@ -116,24 +118,24 @@ function SignUpModal(props, { defaultValueTap }) {
 
             {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-            <p className="message-form mb-0">Don&apos;t have an account yet?</p>
+            <p className="message-form mb-0">{t("modals.notAccount")}</p>
             <Link
               className="link-to message-form"
               onClick={() => {
                 setKey("SignUp"); // Abre el modal de registro
               }}
             >
-              Sign Up
+              {t("modals.signUp")}
             </Link>
           </Tab>
           <Tab eventKey="SignUp" title="SignUp">
             <Form onSubmit={handleSignupSubmit}>
               <h5 className="text-2xl font-semibold text-gray-700 mb-6 sticky left-0">
-                Sign Up
+              {t("modals.signUp")}
               </h5>
 
               <Form.Group className="mb-3">
-                <Form.Label>Email</Form.Label>
+                <Form.Label> {t("modals.email")}</Form.Label>
                 <Form.Control
                   type="email"
                   placeholder="name@example.com"
@@ -145,7 +147,7 @@ function SignUpModal(props, { defaultValueTap }) {
                 />
               </Form.Group>
               <Form.Group className="mb-3">
-                <Form.Label>Password</Form.Label>
+                <Form.Label> {t("modals.password")}</Form.Label>
                 <Form.Control
                   type="password"
                   placeholder="********"
@@ -157,7 +159,7 @@ function SignUpModal(props, { defaultValueTap }) {
                 />
               </Form.Group>
               <Form.Group className="mb-3">
-                <Form.Label>Nombre</Form.Label>
+                <Form.Label> {t("modals.name")}</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="name"
@@ -169,7 +171,7 @@ function SignUpModal(props, { defaultValueTap }) {
                 />
               </Form.Group>
               <Form.Group className="mb-3">
-                <Form.Label>Driver License</Form.Label>
+                <Form.Label> {t("modals.license")}</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="name"
@@ -185,21 +187,21 @@ function SignUpModal(props, { defaultValueTap }) {
                   type="submit"
                   className="btn"
                 >
-                  Create Account
+                   {t("modals.create")}
                 </button>
                 <a onClick={props.onHide} className=" btn-close close-btn"></a>
               </Form.Group>
             </Form>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-            <p className="message-form mb-0">Already have an account?</p>
+            <p className="message-form mb-0"> {t("modals.havAccount")}</p>
             <Link
               className="link-to message-form"
               onClick={() => {
                 setKey("Login");
               }}
             >
-              Login
+               {t("modals.login")}
             </Link>
           </Tab>
         </Tabs>

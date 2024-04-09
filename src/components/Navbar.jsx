@@ -57,7 +57,7 @@ function OffcanvasNav(props) {
                         setModalShow(true);
                       }}
                     >
-                      Login
+                      {t('modals.login')}
                     </Nav.Link>
 
                     <SignUpModal
@@ -67,7 +67,7 @@ function OffcanvasNav(props) {
                   </>
                 )}
 
-                <NavDropdown title="Language">
+                <NavDropdown title={t('nav.languages')}>
                 {Object.keys(locales).map((locale) => (
                   <NavDropdown.Item style={{
                     fontWeight:
@@ -81,7 +81,7 @@ function OffcanvasNav(props) {
                 {isLoggedIn && userData && (
                   <>
                     <NavDropdown
-                      title={<>Welcome {userData.name}</>}
+                      title={<>{t('nav.welcome')} {userData.name}</>}
                       id={`offcanvasNavbarDropdown-expand-md`}
                     >
                       <NavDropdown.Item
@@ -90,7 +90,7 @@ function OffcanvasNav(props) {
                           setModalShowPro(true);
                         }}
                       >
-                        Profile
+                        {t('nav.profile')}
                       </NavDropdown.Item>
 
                       <ProfileModal
@@ -98,7 +98,7 @@ function OffcanvasNav(props) {
                         onHide={() => setModalShowPro(false)}
                       />
                       <NavDropdown.Item href="/reservations">
-                        Reservations
+                      {t('nav.reservations')}
                       </NavDropdown.Item>
                       <Link
                         className="btn-general ms-3 mt-3"
@@ -107,7 +107,7 @@ function OffcanvasNav(props) {
                           setModalShow(false);
                         }}
                       >
-                        Log Out
+                        {t('nav.logout')}
                       </Link>
                     </NavDropdown>
                   </>

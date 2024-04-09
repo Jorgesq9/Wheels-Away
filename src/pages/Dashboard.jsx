@@ -46,12 +46,11 @@ function HomePage() {
     <>
       <section className="header px-5">
         <h1 className="ms-3 ps-5 text-head">
-          Drive Your <span style={{ color: "#ff5c3d" }}>Dreams</span> !
+          {t("main.drive")}{" "}
+          <span style={{ color: "#ff5c3d" }}>{t("main.dreams")}</span> !
         </h1>
         {/* <h2 className="ps-5 ms-5 ms-5">WheelsAway</h2> */}
-        <p className="pt-3 ps-5 ms-3">
-          Explore Worldwide Options: Download Our App Today!
-        </p>
+        <p className="pt-3 ps-5 ms-3">{t("main.explore")}</p>
         <div className="pt-4 ps-5">
           <Image className="stores" src={Apple} />
           <Image className="stores" src={Google} />
@@ -93,11 +92,9 @@ function HomePage() {
       </section>
 
       <section className="brand pt-4 pb-2">
-        <h2>RENT FIRST CLASS.</h2>
-        <h2>PAY ECONOMY</h2>
-        <p className="pt-2">
-          Premium car rental at affordable rates. Worldwide.{" "}
-        </p>
+        <h2>{t("main.title")}</h2>
+        <h2>{t("main.subtitle")}</h2>
+        <p className="pt-2">{t("main.info")}</p>
       </section>
       <section className="info-section pt-5 pb-5 bg-white">
         <Container>
@@ -105,35 +102,29 @@ function HomePage() {
             <Col xs="12" sm="12" md="4" lg="4" xl="4" xxl="4">
               <p className="title-info">
                 <BiWorld className="me-2" />
-                Global reach
+                {t("main.globalTitle")}
               </p>
-              <p className="text-inf">
-                2,000+ SIXT stations in over 105 countries
-              </p>
+              <p className="text-inf">{t("main.globalInfo")}</p>
             </Col>
             <Col xs="12" sm="12" md="4" lg="4" xl="4" xxl="4">
               <p className="title-info">
                 <FaCar className="me-2" />
-                Distinctive fleet
+                {t("main.distTitle")}
               </p>
-              <p className="text-inf">
-                From high-end convertibles to premium SUVs
-              </p>
+              <p className="text-inf">{t("main.distInfo")}</p>
             </Col>
             <Col xs="12" sm="12" md="4" lg="4" xl="4" xxl="4">
               <p className="title-info">
                 <GiLoveMystery className="me-2" />
-                Exceptional service
+                {t("main.serviceTitle")}
               </p>
-              <p className="text-inf">
-                Stress-free, trustworthy, no hidden costs
-              </p>
+              <p className="text-inf">{t("main.serviceInfo")}</p>
             </Col>
           </Row>
         </Container>
       </section>
       <section className="featured-cars">
-        <h2 className="text-center pt-5"> Explore our Top Rated Cars</h2>
+        <h2 className="text-center pt-5">{t('main.rated')}</h2>
 
         <Container className="px-5 mt-5">
           <Row gap={2}>
