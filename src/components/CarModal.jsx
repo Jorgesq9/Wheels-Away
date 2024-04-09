@@ -182,14 +182,14 @@ const CarModal = (props) => {
                       <span className="text-small ">
                         To make a reservation you need to be registered
                       </span>
+          
                       <Link
                         className="btn-general mt-2"
-                        onClick={() => {
-                          setModalShow(true);
-                        }}
+                        onClick={props.onLogin} // Ya no necesitas la lógica de apertura aquí
                       >
                         Login
                       </Link>
+
 
                       <SignUpModal
                         show={modalShow}

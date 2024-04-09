@@ -13,6 +13,7 @@ import Apple from "../assets/appstore.png";
 
 import Google from "../assets/googleplay.png";
 import CarModal from "../components/CarModal";
+import SignUpModal from "../components/SignUpModal";
 
 // Import the string from the .env with URL of the API/server - http://localhost:5005
 const API_URL = import.meta.env.VITE_API_URL;
@@ -22,6 +23,8 @@ function HomePage() {
   const [id, setId] = useState(null);
   const [availableCars, setAvailableCars] = useState(null);
   const [modalShow, setModalShow] = useState(false);
+  const [signUpModalShow, setSignUpModalShow] = useState(false);
+  
 
   const sliceCars = cars.slice(0,8);
 
@@ -160,7 +163,19 @@ function HomePage() {
         </Container>
       </section>
 
-      <CarModal show={modalShow} id={id} onHide={() => setModalShow(false)} />
+      <CarModal
+        show={modalShow}
+        id={id}
+        onHide={() => modalShow(false)}
+        onLogin={() => {
+          setSignUpModalShow(true); 
+          setModalShow(false);  
+        }}
+      />
+      <SignUpModal
+        show={signUpModalShow}
+        onHide={() => setSignUpModalShow(false)}
+      />
     </>
   );
 }
