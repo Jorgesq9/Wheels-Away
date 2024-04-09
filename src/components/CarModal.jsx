@@ -185,7 +185,7 @@ const CarModal = (props) => {
           
                       <Link
                         className="btn-general mt-2"
-                        onClick={props.onLogin} // Ya no necesitas la lógica de apertura aquí
+                        onClick={props.onLogin} 
                       >
                         Login
                       </Link>
