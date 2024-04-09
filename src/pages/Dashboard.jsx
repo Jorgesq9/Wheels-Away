@@ -166,7 +166,7 @@ function HomePage() {
       <CarModal
         show={modalShow}
         id={id}
-        onHide={() => modalShow(false)}
+        onHide={() => setModalShow(false)}
         onLogin={() => {
           setSignUpModalShow(true); 
           setModalShow(false);  
