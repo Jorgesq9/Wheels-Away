@@ -14,19 +14,20 @@ import Apple from "../assets/appstore.png";
 import Google from "../assets/googleplay.png";
 import CarModal from "../components/CarModal";
 import SignUpModal from "../components/SignUpModal";
+import { useTranslation } from "react-i18next";
 
 // Import the string from the .env with URL of the API/server - http://localhost:5005
 const API_URL = import.meta.env.VITE_API_URL;
 
 function HomePage() {
+  const { t, i18n } = useTranslation();
   const [cars, setCars] = useState([]);
   const [id, setId] = useState(null);
   const [availableCars, setAvailableCars] = useState(null);
   const [modalShow, setModalShow] = useState(false);
   const [signUpModalShow, setSignUpModalShow] = useState(false);
-  
 
-  const sliceCars = cars.slice(0,8);
+  const sliceCars = cars.slice(0, 8);
 
   const getAllCars = () => {
     axios
@@ -65,7 +66,7 @@ function HomePage() {
               <FilterCar setAvailableCars={setAvailableCars} />
             </Col>
           </Row>
-          <Row className={availableCars !== null ? 'pt-5': 'pt-0'}>
+          <Row className={availableCars !== null ? "pt-5" : "pt-0"}>
             {availableCars?.map((car, index) => (
               <Col
                 key={index}
@@ -101,41 +102,32 @@ function HomePage() {
       <section className="info-section pt-5 pb-5 bg-white">
         <Container>
           <Row>
-            <Col   xs="12"
-                sm="12"
-                md="4"
-                lg="4"
-                xl="4"
-                xxl="4">
+            <Col xs="12" sm="12" md="4" lg="4" xl="4" xxl="4">
               <p className="title-info">
-                <BiWorld className="me-2"/>
+                <BiWorld className="me-2" />
                 Global reach
               </p>
-              <p className="text-inf">2,000+ SIXT stations in over 105 countries</p>
+              <p className="text-inf">
+                2,000+ SIXT stations in over 105 countries
+              </p>
             </Col>
-            <Col xs="12"
-                sm="12"
-                md="4"
-                lg="4"
-                xl="4"
-                xxl="4">
+            <Col xs="12" sm="12" md="4" lg="4" xl="4" xxl="4">
               <p className="title-info">
-                <FaCar className="me-2"/>
+                <FaCar className="me-2" />
                 Distinctive fleet
               </p>
-              <p className="text-inf">From high-end convertibles to premium SUVs</p>
+              <p className="text-inf">
+                From high-end convertibles to premium SUVs
+              </p>
             </Col>
-            <Col xs="12"
-                sm="12"
-                md="4"
-                lg="4"
-                xl="4"
-                xxl="4">
+            <Col xs="12" sm="12" md="4" lg="4" xl="4" xxl="4">
               <p className="title-info">
-                <GiLoveMystery className="me-2"/>
+                <GiLoveMystery className="me-2" />
                 Exceptional service
               </p>
-              <p className="text-inf">Stress-free, trustworthy, no hidden costs</p>
+              <p className="text-inf">
+                Stress-free, trustworthy, no hidden costs
+              </p>
             </Col>
           </Row>
         </Container>
@@ -143,22 +135,22 @@ function HomePage() {
       <section className="featured-cars">
         <h2 className="text-center pt-5"> Explore our Top Rated Cars</h2>
 
-        <Container  className="px-5 mt-5">
+        <Container className="px-5 mt-5">
           <Row gap={2}>
             {sliceCars?.map((car, index) => (
-                <>
-                  <Col
-                    key={index}
-                    xs={12}
-                    md={6}
-                    lg={4}
-                    xl={3}
-                    className="mb-3 px-2"
-                  >
-                    <CardProduct key={index} car={car} />
-                  </Col>
-                </>
-              ))}
+              <>
+                <Col
+                  key={index}
+                  xs={12}
+                  md={6}
+                  lg={4}
+                  xl={3}
+                  className="mb-3 px-2"
+                >
+                  <CardProduct key={index} car={car} />
+                </Col>
+              </>
+            ))}
           </Row>
         </Container>
       </section>
@@ -168,8 +160,8 @@ function HomePage() {
         id={id}
         onHide={() => setModalShow(false)}
         onLogin={() => {
-          setSignUpModalShow(true); 
-          setModalShow(false);  
+          setSignUpModalShow(true);
+          setModalShow(false);
         }}
       />
       <SignUpModal

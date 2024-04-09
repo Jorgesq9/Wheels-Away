@@ -12,6 +12,7 @@ import BookDetail from "./pages/BookDetail";
 import Footer from "./components/Footer";
 import ErrorPage from "./pages/ErrorPage";
 
+
 function App() {
 
   const [opacity, setOpacity] = useState(0);
