@@ -6,7 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/auth.context";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "../assets/Logo-wheelsaway.png";
 import SignUpModal from "./SignUpModal";
 import ProfileModal from "./ProfileModal";
@@ -67,17 +67,6 @@ function OffcanvasNav(props) {
                   </>
                 )}
 
-                <NavDropdown title={t('nav.languages')}>
-                {Object.keys(locales).map((locale) => (
-                  <NavDropdown.Item style={{
-                    fontWeight:
-                      i18n.resolvedLanguage === locale
-                        ? "bold"
-                        : "normal",
-                  }} key={locale} onClick={() => i18n.changeLanguage(locale)}>{locales[locale].title}</NavDropdown.Item>
-                ))}
-                </NavDropdown>
-
                 {isLoggedIn && userData && (
                   <>
                     <NavDropdown
@@ -112,6 +101,16 @@ function OffcanvasNav(props) {
                     </NavDropdown>
                   </>
                 )}
+                <NavDropdown title={t('nav.languages')}>
+                {Object.keys(locales).map((locale) => (
+                  <NavDropdown.Item style={{
+                    fontWeight:
+                      i18n.resolvedLanguage === locale
+                        ? "bold"
+                        : "normal",
+                  }} key={locale} onClick={() => i18n.changeLanguage(locale)}>{locales[locale].title}</NavDropdown.Item>
+                ))}
+                </NavDropdown>
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
