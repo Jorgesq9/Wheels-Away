@@ -1,0 +1,71 @@
+{
+    "nav": {
+      "languages": "Languages",
+      "welcome": "welcome",
+      "profile":"profile",
+      "reservations":"Reservations",
+      "logout":"Log Out"
+    },
+    "main": {
+        "drive":"Drive Your",
+        "dreams":" Dreams",
+        "explore": "Explore Worldwide Options: Download Our App Today!",
+        "go": "Go!",
+        "title":"RENT FIRST CLASS.",
+        "subtitle":"PAY ECONOMY",
+        "info":"Premium car rental at affordable rates. Worldwide.",
+        "globalTitle":"Global reach",
+        "globalInfo":"2,000+ SIXT stations in over 105 countries",
+        "distTitle":"Distinctive fleet",
+        "distInfo":"From high-end convertibles to premium SUVs",
+        "serviceTitle":"Exceptional service",
+        "serviceInfo":"Stress-free, trustworthy, no hidden costs",
+        "rated":"Explore our Top Rated Cars"
+    },
+
+    "car": {
+        "manual": "Manual",
+        "automatic":"Automatic",
+        "day":"Day",
+        "unlimited":"Unlimited km",
+        "rent":"Rent your Car",
+        "start":"Start Date",
+        "end":"End Date",
+        "reserve":"Reserve",
+        "alert":"To make a reservation you need to be registered",
+        "login":"Log In"
+    },
+
+    "modals": {
+        "login":"Log In",
+        "signUp":"Sign Up",
+        "create": "Create Account",
+        "email":"Email",
+        "password":"password",
+        "name":"Name",
+        "license":"Driver License",
+        "notAccount":"Don't have an account yet?",
+        "havAccount": "Already have an account?",
+        "created":"your have license in from"
+    },
+    "bookings": {
+        "booking":"Bookings",
+        "start":"Start Date",
+        "end":"End Date",
+        "price":"Price",
+        "notBook": "No bookings yet",
+        "detailTitle":"Your Reservation details",
+        "edit":"Edit",
+        "delete":"Delete",
+        "id":"Reservation ID:",
+        "driver":"Driver",
+        "detailBook":"Bookings details",
+        "total":"Total Price",
+        "save":"Save Changes"
+    },
+    "footer":{
+        "developed":"Developed by:"
+    }
+
+
+  }

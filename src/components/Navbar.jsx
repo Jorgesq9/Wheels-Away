@@ -10,12 +10,17 @@ import { Link, useLocation } from "react-router-dom";
 import Logo from "../assets/Logo-wheelsaway.png";
 import SignUpModal from "./SignUpModal";
 import ProfileModal from "./ProfileModal";
+import { useTranslation} from 'react-i18next';
 
-function OffcanvasExample(props) {
-  const location = useLocation();
+const locales = {
+  en: { title: "English" },
+  de: { title: "German" },
+  es: { title: "Español" },
+};
+function OffcanvasNav(props) {
+  const { t, i18n } = useTranslation();
   const { isLoggedIn, logOutUser } = useContext(AuthContext);
   const { userData } = useContext(AuthContext);
-  const [defaultValueTap, setDefaultValueTap] = useState();
   const [modalShow, setModalShow] = useState(false);
   const [modalShowPro, setModalShowPro] = useState(false);
 
@@ -61,16 +66,30 @@ function OffcanvasExample(props) {
                     />
                   </>
                 )}
+
+                <NavDropdown title="Language">
+                {Object.keys(locales).map((locale) => (
+                  <NavDropdown.Item style={{
+                    fontWeight:
+                      i18n.resolvedLanguage === locale
+                        ? "bold"
+                        : "normal",
+                  }} key={locale} onClick={() => i18n.changeLanguage(locale)}>{locales[locale].title}</NavDropdown.Item>
+                ))}
+                </NavDropdown>
+
                 {isLoggedIn && userData && (
                   <>
                     <NavDropdown
                       title={<>Welcome {userData.name}</>}
                       id={`offcanvasNavbarDropdown-expand-md`}
                     >
-                      <NavDropdown.Item className=""
-                      onClick={() => {
-                        setModalShowPro(true);
-                      }}>
+                      <NavDropdown.Item
+                        className=""
+                        onClick={() => {
+                          setModalShowPro(true);
+                        }}
+                      >
                         Profile
                       </NavDropdown.Item>
 
@@ -102,4 +121,4 @@ function OffcanvasExample(props) {
   );
 }
 
-export default OffcanvasExample;
+export default OffcanvasNav;
