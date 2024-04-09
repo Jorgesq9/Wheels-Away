@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
@@ -13,7 +13,7 @@ import {
   Col,
   Container,
 } from "react-bootstrap";
-import Footer from "../components/Footer";
+import NoBooking from "../assets/noBooking.svg";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -41,7 +41,17 @@ const Bookings = () => {
   }, [user]); 
 
   if (!reservations.length) {
-    return <h2>No bookings yet</h2>;
+    return (
+      <Container>
+        <Row>
+          <Col className="w-50 text-center pt-5 h-100 ">
+            <Image className="image-error h-25 w-25"  src={NoBooking} />
+            <h4 className="mt-5">No bookings yet</h4>
+          </Col>
+        </Row>
+      </Container>
+
+    )
   }
 
   return (
