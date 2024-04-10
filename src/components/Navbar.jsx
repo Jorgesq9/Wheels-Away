@@ -6,7 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/auth.context";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "../assets/Logo-wheelsaway.png";
 import SignUpModal from "./SignUpModal";
 import ProfileModal from "./ProfileModal";
@@ -57,7 +57,7 @@ function OffcanvasNav(props) {
                         setModalShow(true);
                       }}
                     >
-                      Login
+                      {t('modals.login')}
                     </Nav.Link>
 
                     <SignUpModal
@@ -67,7 +67,41 @@ function OffcanvasNav(props) {
                   </>
                 )}
 
-                <NavDropdown title="Language">
+                {isLoggedIn && userData && (
+                  <>
+                    <NavDropdown
+                      title={<>{t('nav.welcome')} {userData.name}</>}
+                      id={`offcanvasNavbarDropdown-expand-md`}
+                    >
+                      <NavDropdown.Item
+                        className=""
+                        onClick={() => {
+                          setModalShowPro(true);
+                        }}
+                      >
+                        {t('nav.profile')}
+                      </NavDropdown.Item>
+
+                      <ProfileModal
+                        show={modalShowPro}
+                        onHide={() => setModalShowPro(false)}
+                      />
+                      <NavDropdown.Item href="/reservations">
+                      {t('nav.reservations')}
+                      </NavDropdown.Item>
+                      <Link
+                        className="btn-general ms-3 mt-3"
+                        onClick={() => {
+                          logOutUser();
+                          setModalShow(false);
+                        }}
+                      >
+                        {t('nav.logout')}
+                      </Link>
+                    </NavDropdown>
+                  </>
+                )}
+                <NavDropdown title={t('nav.languages')}>
                 {Object.keys(locales).map((locale) => (
                   <NavDropdown.Item style={{
                     fontWeight:
@@ -77,41 +111,6 @@ function OffcanvasNav(props) {
                   }} key={locale} onClick={() => i18n.changeLanguage(locale)}>{locales[locale].title}</NavDropdown.Item>
                 ))}
                 </NavDropdown>
-
-                {isLoggedIn && userData && (
-                  <>
-                    <NavDropdown
-                      title={<>Welcome {userData.name}</>}
-                      id={`offcanvasNavbarDropdown-expand-md`}
-                    >
-                      <NavDropdown.Item
-                        className=""
-                        onClick={() => {
-                          setModalShowPro(true);
-                        }}
-                      >
-                        Profile
-                      </NavDropdown.Item>
-
-                      <ProfileModal
-                        show={modalShowPro}
-                        onHide={() => setModalShowPro(false)}
-                      />
-                      <NavDropdown.Item href="/reservations">
-                        Reservations
-                      </NavDropdown.Item>
-                      <Link
-                        className="btn-general ms-3 mt-3"
-                        onClick={() => {
-                          logOutUser();
-                          setModalShow(false);
-                        }}
-                      >
-                        Log Out
-                      </Link>
-                    </NavDropdown>
-                  </>
-                )}
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
