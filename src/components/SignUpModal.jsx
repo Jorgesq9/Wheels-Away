@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-const API_URL = "http://localhost:5005";
+const API_URL = import.meta.env.VITE_API_URL;
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import React, { useState, useContext } from "react";
