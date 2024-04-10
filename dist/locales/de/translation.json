@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "languages": "Sprachen",
+    "welcome": "Willkommen",
+    "profile": "Profil",
+    "reservations": "Reservierungen",
+    "logout": "Abmelden"
+  },
+  "main": {
+    "drive": "Fahren Sie Ihren",
+    "dreams": " Traum",
+    "explore": "Weltweite Optionen erkunden: Laden Sie noch heute unsere App herunter!",
+    "go": "Los!",
+    "title": "ERSTKLASSIG MIETEN.",
+    "subtitle": "ZUM SPARPREIS",
+    "info": "Premium Autovermietung zu erschwinglichen Preisen. Weltweit.",
+    "globalTitle": "Weltweite Reichweite",
+    "globalInfo": "Über 2.000 SIXT-Stationen in mehr als 105 Ländern",
+    "distTitle": "Außergewöhnliche Flotte",
+    "distInfo": "Von hochwertigen Cabrios bis zu Premium-SUVs",
+    "serviceTitle": "Außergewöhnlicher Service",
+    "serviceInfo": "Stressfrei, vertrauenswürdig, keine versteckten Kosten",
+    "rated": "Entdecken Sie unsere Top-bewerteten Autos"
+  },
+  "car": {
+    "manual": "Manuell",
+    "automatic": "Automatik",
+    "day": "Tag",
+    "unlimited": "Unbegrenzte km",
+    "rent": "Mieten Sie Ihr Auto",
+    "start": "Anfangsdatum",
+    "end": "Enddatum",
+    "reserve": "Reservieren",
+    "alert": "Um eine Reservierung vorzunehmen, müssen Sie registriert sein",
+    "login": "Anmelden"
+  },
+  "modals": {
+    "login": "Anmelden",
+    "signUp": "Registrieren",
+    "create": "Konto erstellen",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "name": "Name",
+    "license": "Führerschein",
+    "notAccount": "Noch kein Konto?",
+    "havAccount": "Schon ein Konto?",
+    "created": "Sie haben einen Führerschein in von"
+  },
+  "bookings": {
+    "booking": "Buchungen",
+    "start": "Anfangsdatum",
+    "end": "Enddatum",
+    "rent":"Mieten Sie Ihr Auto",
+    "price": "Preis",
+    "finalPrice":"Ihr Endpreis",
+    "notBook": "Noch keine Buchungen",
+    "detailTitle": "Ihre Reservierungsdetails",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "id": "Reservierungs-ID:",
+    "driver": "Fahrer",
+    "detailBook": "Buchungsdetails",
+    "total": "Gesamtpreis",
+    "save": "Änderungen speichern"
+  },
+  "footer": {
+    "developed": "Entwickelt von:"
+  }
+}
