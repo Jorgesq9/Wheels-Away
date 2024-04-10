@@ -187,7 +187,7 @@ const CarModal = (props) => {
                         className="btn-general mt-2"
                         onClick={props.onLogin} 
                       >
-                        {t("bookings.login")}
+                        {t("modals.login")}
                       </Link>
 
 
