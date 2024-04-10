@@ -23,8 +23,8 @@ const Bookings = () => {
   const { t, i18n } = useTranslation();
   const { user } = useContext(AuthContext);
 
-  const getReservations = () => {
-    axios
+  const getReservations = async () => {
+    await axios
       .get(`${API_URL}/api/rentals/${user._id}`)
       .then((response) => {
         const reservations = response.data;
